@@ -3,11 +3,11 @@ let pagina = document.querySelector(".paginteira")
 function criarPerguntas(){
     pagina.innerHTML = `<h1>Crie suas perguntas</h1>`
 
-    for (let i = 1; i < 4; i++){
+    for (let i = 1; i < 2; i++){
         pagina.innerHTML += 
-                `<div class="secondform minimizado">
+                `<div class="secondform pergunta${i} minimizado">
                     <form>
-                        <ion-icon name="open-outline" onClick="abrirPergunta(this)"></ion-icon>
+                        <ion-icon name="open-outline" onClick="abrirBloco(this)"></ion-icon>
                         <h2>Pergunta ${i}</h2>
                         <input type="text" class="pergunta" placeholder="Texto da pergunta">
                         <input type="text" class="cor" placeholder="Cor de fundo da pergunta">
@@ -27,7 +27,7 @@ function criarPerguntas(){
                 </div>`
     }
 
-    const pergunta = document.querySelector(".secondform")
+    const pergunta = document.querySelector(".pergunta1")
     pergunta.classList.remove("minimizado")
     pergunta.classList.add("visivel")
 
@@ -36,21 +36,23 @@ function criarPerguntas(){
 
 criarPerguntas();
 
-function abrirPergunta(elemento){
+function abrirBloco(elemento){
     elemento.parentNode.parentNode.classList.remove("minimizado")
-    const perguntaAnterior = document.querySelector(".visivel")
-    perguntaAnterior.classList.remove("visivel")
-    perguntaAnterior.classList.add("minimizado")
+    const blocoAnterior = document.querySelector(".visivel")
+    blocoAnterior.classList.remove("visivel")
+    blocoAnterior.classList.add("minimizado")
     elemento.parentNode.parentNode.classList.add("visivel")
 }
 
 function validarCor(){
     let valida = true
     let cor = document.querySelector(".visivel .cor")
-    if (cor.value.startsWith("#") && cor.value.length == 7){
+    if (!cor.value){
+        valida = false
+    } else if (cor.value.startsWith("#") && cor.value.length == 7){
         let array = cor.value.split('')
         for (let i = 1;i < 7;i++){
-            if ((array[i] == "A") || (array[i] == "a") || (array[i] == "B") || (array[i] == "b") || (array[i] == "C") || (array[i] == "c") && (array[i] == "D") || (array[i] == "d") || (array[i] == "E") || (array[i] == "e") || (array[i] == "F") || (array[i] == "f") || (array[i] == "1") || (array[i] == "2") || (array[i] == "3") || (array[i] == "4") || (array[i] == "5") || (array[i] == "6") || (array[i] == "7") || (array[i] == "8") || (array[i] == "9")){
+            if ((array[i] == "A") || (array[i] == "a") || (array[i] == "B") || (array[i] == "b") || (array[i] == "C") || (array[i] == "c") && (array[i] == "D") || (array[i] == "d") || (array[i] == "E") || (array[i] == "e") || (array[i] == "F") || (array[i] == "f") || (array[i] == "1") || (array[i] == "2") || (array[i] == "3") || (array[i] == "4") || (array[i] == "5") || (array[i] == "6") || (array[i] == "7") || (array[i] == "8") || (array[i] == "9") || (array[i] == "0")){
             
             } else {
                 valida = false
@@ -62,6 +64,7 @@ function validarCor(){
     }
 
     invalida(cor, valida, "A cor deve estar na forma hexadecimal", "erroCor");
+    return valida
 }
 
 function validarPergunta () {
@@ -73,6 +76,7 @@ function validarPergunta () {
     } 
 
     invalida(formulacao, valida, "A pergunta deve ter no mínimo 20 caracteres", "erroPergunta")
+    return valida
 }
 
 function validarRespostas() {
@@ -80,30 +84,41 @@ function validarRespostas() {
     const resposta2 = document.querySelector(".visivel .resposta2")
     const resposta3 = document.querySelector(".visivel .resposta3")
     const resposta4 = document.querySelector(".visivel .resposta4")
-    let valida = true
+    let valida1 = true
+    let valida2 = true
     
     if (resposta1.value == "") {
-        valida = false
+        valida1 = false
     } 
 
-    invalida(resposta1, valida, "A resposta correta não pode ser vazia", "erroResposta1")
-    valida = true
+    invalida(resposta1, valida1, "A resposta correta não pode ser vazia", "erroResposta1")
+    
 
     if (resposta2.value == "" && resposta3.value == "" && resposta4.value == "") {
-        valida = false
+        valida2 = false
     } 
 
-    invalida(resposta2, valida, "É necessário ter pelo menos 1 resposta correta e 1 errada", "erroResposta2");
-    invalida(resposta3, valida, "É necessário ter pelo menos 1 resposta correta e 1 errada", "erroResposta3");
-    invalida(resposta4, valida, "É necessário ter pelo menos 1 resposta correta e 1 errada", "erroResposta4");
+    invalida(resposta2, valida2, "É necessário ter pelo menos 1 resposta correta e 1 errada", "erroResposta2");
+    invalida(resposta3, valida2, "É necessário ter pelo menos 1 resposta correta e 1 errada", "erroResposta3");
+    invalida(resposta4, valida2, "É necessário ter pelo menos 1 resposta correta e 1 errada", "erroResposta4");
+
+    if (valida1 && valida2){
+        return(valida2)
+    }
 }
 
 function validarUrls() {
+    let valida = true
     for (let i = 1; i < 5; i++){
         const urls = document.querySelector(".visivel .url"+i)
-        let valida = validateUrl(urls.value)
-        invalida(urls, valida, "A URL tem que ser válida", "erroUrl"+i)
-    }  
+        const resposta = document.querySelector(".visivel .resposta"+i)
+        if (resposta.value != ""){
+             valida = validateUrl(urls.value)
+            invalida(urls, valida, "A URL tem que ser válida", "erroUrl"+i)
+        }
+    }
+
+    return valida
 }
 
 function proseguirCriarNiveis() {
@@ -111,6 +126,22 @@ function proseguirCriarNiveis() {
     validarPergunta()   
     validarRespostas()
     validarUrls()
+    let c = 1;
+    for (let i = 1; i < 2; i++){
+        let bloco = document.querySelector(".visivel")
+        bloco.classList.remove("visivel")
+        bloco.classList.add("minimizado")
+        bloco = document.querySelector(".pergunta"+i)
+        bloco.classList.add("visivel")
+        bloco.classList.remove("minimizado")
+        if (validarCor() && validarPergunta() &&  validarRespostas() && validarUrls()) {
+            c++
+        }
+
+        if (c == 2){
+            criarNiveis()
+        }
+    }
 }
 
 function invalida(input, valida, mensagemErro, nomeErro){
