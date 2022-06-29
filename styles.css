@@ -1,0 +1,4 @@
+.paginteira {
+    display: flex;
+    flex-direction: column;
+}
