@@ -18,5 +18,9 @@ function loadpage1 () {
  }
 
  function validateData(data) {
-    if (data[0].length > 19 && data[0].length < 65)
+
+ }
+
+ function notValid() {
+    alert("Dados inválidos. Por favor preencha o formulário novamente.");
  }
