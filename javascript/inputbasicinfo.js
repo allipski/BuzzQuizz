@@ -10,3 +10,4 @@ function loadpage1 () {
     </div>
     <button>Prosseguir para criar perguntas</button>`;
 }
+ loadpage1();
