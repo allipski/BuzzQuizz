@@ -16,6 +16,7 @@ body {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     position: fixed;
     width: 100%;
+    z-index: 1;
 }
 
 .barratopo > img {
@@ -31,15 +32,19 @@ body {
     justify-content: center;
 }
 
+.secondform,
 .firstform {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     width: 600px;
     background-color: #FFFFFF;
     margin: 27px 0 85px 0;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+.secondform {
+    margin: 27px 0;
 }
 
 h1 {
@@ -50,7 +55,7 @@ h1 {
 h2 {
     font-weight: 700;
     font-size: 20px;
-    margin: 27px 0 12px 7px;
+    margin: 27px 0 12px 12px;
 }
 
 form {
@@ -89,8 +94,8 @@ ion-icon {
     color: black;
     font-size: 26px;
     position: absolute;
-    top: 27px;
-    right: 27px;
+    top: 3px;
+    right: 19px;
 }
 
 button {
@@ -106,6 +111,20 @@ button {
     padding: 15px 40px;
 }
 
+.minimizado *{
+    display: none;
+}
+
+.minimizado :nth-child(1), 
+.minimizado :nth-child(2) {
+    display: flex;
+    margin: 9px 0 9px 7px;
+}
+
+ion-icon {
+    display: none;
+}
+
 @media only screen and (max-width: 1100px) {
 
 .paginteira {
@@ -116,6 +135,7 @@ h1 {
     font-size: 20px;
 }
 
+.secondform,
 .firstform {
     width: 100%;
     padding: 5px;
