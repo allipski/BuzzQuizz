@@ -12,16 +12,16 @@ function criarPerguntas(){
                         <input type="text" class="pergunta" placeholder="Texto da pergunta">
                         <input type="text" class="cor" placeholder="Cor de fundo da pergunta">
                         <h2>Resposta correta</h2>
-                        <input type="text" placeholder="Resposta correta">
+                        <input type="text" class="resposta1" placeholder="Resposta correta">
                         <input type="text" placeholder="URL da imagem">
                         <h2>Respostas incorretas</h2>
-                        <input type="text" placeholder="Resposta incorreta 1">
+                        <input type="text" class="resposta2" placeholder="Resposta incorreta 1">
                         <input type="text" placeholder="URL da imagem 1">
                         <div class="pular"></div>
-                        <input type="text" placeholder="Resposta incorreta 2">
+                        <input type="text" class="resposta3" placeholder="Resposta incorreta 2">
                         <input type="text" placeholder="URL da imagem 2">
                         <div class="pular"></div>
-                        <input type="text" placeholder="Resposta incorreta 3">
+                        <input type="text" class="resposta4" placeholder="Resposta incorreta 3">
                         <input type="text" placeholder="URL da imagem 3">
                     </form>
                 </div>`
@@ -51,7 +51,7 @@ function validarCor(){
         let array = cor.value.split('')
         for (let i = 1;i < 7;i++){
             if ((array[i] == "A") || (array[i] == "a") || (array[i] == "B") || (array[i] == "b") || (array[i] == "C") || (array[i] == "c") && (array[i] == "D") || (array[i] == "d") || (array[i] == "E") || (array[i] == "e") || (array[i] == "F") || (array[i] == "f") || (array[i] == "1") || (array[i] == "2") || (array[i] == "3") || (array[i] == "4") || (array[i] == "5") || (array[i] == "6") || (array[i] == "7") || (array[i] == "8") || (array[i] == "9")){
-                console.log("aqui")
+            
             } else {
                 valida = false
                 i = 8
@@ -82,7 +82,6 @@ function invalida(input, valida, mensagemErro, nomeErro){
     }
 
     if (valida == false){
-        console.log("aqui")
         input.classList.add("invalida")
         input.insertAdjacentHTML('afterend', '<p class='+nomeErro+'>'+mensagemErro+'</p>')
     } else {
@@ -91,24 +90,16 @@ function invalida(input, valida, mensagemErro, nomeErro){
 }
 
 function validarRespostas () {
-    const resposta = document.querySelector(".resposta")
-    let valida = true
-    
-    if (resposta) {
-        valida = false
-    } 
+    for (let i = 1; i < 5; i++){
+        const resposta = document.querySelector(".visivel .resposta"+i)
+        let valida = true
+        
+        if (resposta.value == "") {
+            valida = false
+        } 
 
-    var erroResposta = document.querySelector(".erroResposta");
-    if(erroResposta) {
-        erroResposta.parentNode.removeChild(erroResposta);
-    }
-
-    if (valida == false){
-        resposta.classList.add("invalida")
-        resposta.insertAdjacentHTML('afterend', '<p class="erroResposta">A pergunta deve ter no mínimo 20 caracteres</p>')
-    } else {
-        resposta.classList.remove("invalida")
-    }
+        invalida(resposta, valida, "A resposta não pode ser vazia", "erroResposta"+i)
+    }   
 }
 
 function proseguirCriarNiveis() {
