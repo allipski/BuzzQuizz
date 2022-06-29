@@ -8,19 +8,70 @@ function loadpage1 () {
             <input type="text" placeholder="Quantidade de níveis do quizz">
         </form>
     </div>
-    <button onClick="getInformation()">Prosseguir para criar perguntas</button>`;
+    <button type="submit" onclick="getInformation()">Prosseguir para criar perguntas</button>`;
 }
  loadpage1();
 
+let values = [];
+
  function getInformation() {
-    let entries = document.querySelectorAll('input').value;
-    validateData(entries);
+    let entries = document.querySelectorAll('input');
+    for (let i = 0; i < entries.length; i++){
+        values[i] = entries[i].value;
+    }
+    validateData(values);
  }
+
+function validateTitle(inputValue) {
+    if (inputValue.length < 20 || inputValue.length > 65) {
+        console.log(7)
+        return false;
+    } else {
+        console.log(8)
+        return true;
+    }
+}
+
+function validateUrl(inputValue) {
+    try {
+        new URL(inputValue);
+    } catch (e) {
+        console.log(1)
+        return false;
+    }
+    console.log(2)
+    return true;
+}
+
+function validateQuestionNum(inputValue) {
+    if (inputValue < 3) {
+        console.log(3)
+        return false;
+    } else {
+        console.log(4)
+        return true;
+    }
+}
+
+function validateLevels(inputValue) {
+    if (inputValue < 2) {
+        console.log(5)
+        return false;
+    } else {
+        console.log(6)
+        return true;
+    }
+}
 
  function validateData(data) {
-
+    if (validateTitle(data[0]) && validateUrl(data[1]) && validateQuestionNum(data[2]) && validateLevels(data[3])) {
+        irParaPerguntas()
+    } else {
+        alert("Dados inválidos. Por favor preencha o formulário novamente.");
+    }
  }
 
- function notValid() {
-    alert("Dados inválidos. Por favor preencha o formulário novamente.");
+ function irParaPerguntas() {
+    console.log("Deu certo!")
  }
+ 
