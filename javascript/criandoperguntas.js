@@ -9,7 +9,7 @@ function criarPerguntas(){
                     <form>
                         <ion-icon name="open-outline" onClick="abrirPergunta(this)"></ion-icon>
                         <h2>Pergunta ${i}</h2>
-                        <input type="text" placeholder="Texto da pergunta">
+                        <input type="text" class="pergunta" placeholder="Texto da pergunta">
                         <input type="text" class="cor" placeholder="Cor de fundo da pergunta">
                         <h2>Resposta correta</h2>
                         <input type="text" placeholder="Resposta correta">
@@ -61,22 +61,41 @@ function validarCor(){
         valida = false
     }
 
-    // Alice essa é a parte do bonus que mostra os erros no input, esse primeiro if apaga os erros do input de cor (só pra nao criar mais de uma mensagem de erro)
     var erroCor = document.querySelector(".erroCor");
     if(erroCor) {
         erroCor.parentNode.removeChild(erroCor);
     }
 
-    // Esse if daqui nos diz que caso a mensagem for falsa eu adiciono um paragrafo com o erro e deixo o input vermelho
     if (valida == false){
         cor.classList.add("invalida")
         cor.insertAdjacentHTML('afterend', '<p class="erroCor">A cor deve estar na forma hexadecimal</p>')
     } else {
-        // Caso o valor da input for valido eu tiro a cor vermelha dela
         cor.classList.remove("invalida")
     }
 }
 
+function validarPergunta () {
+    const formulacao = document.querySelector(".pergunta")
+    let valida = true
+    
+    if (formulacao.value.length < 20) {
+        valida = false
+    } 
+
+    var erroPergunta = document.querySelector(".erroPergunta");
+    if(erroPergunta) {
+        erroPergunta.parentNode.removeChild(erroPergunta);
+    }
+
+    if (valida == false){
+        formulacao.classList.add("invalida")
+        formulacao.insertAdjacentHTML('afterend', '<p class="erroPergunta">A pergunta deve ter no mínimo 20 caracteres</p>')
+    } else {
+        formulacao.classList.remove("invalida")
+    }
+}
+
 function proseguirCriarNiveis() {
-    validarCor();   
+    validarCor();
+    validarPergunta();   
 }
