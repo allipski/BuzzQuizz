@@ -138,6 +138,13 @@ p {
     background-color: #FFE9E9;
 }
 
+.gohome {
+    font-size: 21px;
+    font-weight: 400;
+    color: 818181;
+    text-decoration: underline;
+}
+
 @media only screen and (max-width: 1100px) {
 
 .paginteira {
@@ -168,6 +175,10 @@ button {
     font-size: 18px;
     width:85%;
     padding: 20px 0px;
+}
+
+.gohome {
+    font-size: 18px;
 }
 
 }
