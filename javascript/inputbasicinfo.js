@@ -65,13 +65,9 @@ function validateLevels(inputValue) {
 
  function validateData(data) {
     if (validateTitle(data[0]) && validateUrl(data[1]) && validateQuestionNum(data[2]) && validateLevels(data[3])) {
-        irParaPerguntas()
+        criarPerguntas()
     } else {
         alert("Dados inválidos. Por favor preencha o formulário novamente.");
     }
- }
-
- function irParaPerguntas() {
-    console.log("Deu certo!")
  }
  
