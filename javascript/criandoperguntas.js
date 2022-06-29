@@ -76,16 +76,26 @@ function validarPergunta () {
 }
 
 function validarRespostas() {
-    for (let i = 1; i < 5; i++){
-        const resposta = document.querySelector(".visivel .resposta"+i)
-        let valida = true
-        
-        if (resposta.value == "") {
-            valida = false
-        } 
+    const resposta1 = document.querySelector(".visivel .resposta1")
+    const resposta2 = document.querySelector(".visivel .resposta2")
+    const resposta3 = document.querySelector(".visivel .resposta3")
+    const resposta4 = document.querySelector(".visivel .resposta4")
+    let valida = true
+    
+    if (resposta1.value == "") {
+        valida = false
+    } 
 
-        invalida(resposta, valida, "A resposta não pode ser vazia", "erroResposta"+i)
-    }   
+    invalida(resposta1, valida, "A resposta correta não pode ser vazia", "erroResposta1")
+    valida = true
+
+    if (resposta2.value == "" && resposta3.value == "" && resposta4.value == "") {
+        valida = false
+    } 
+
+    invalida(resposta2, valida, "É necessário ter pelo menos 1 resposta correta e 1 errada", "erroResposta2");
+    invalida(resposta3, valida, "É necessário ter pelo menos 1 resposta correta e 1 errada", "erroResposta3");
+    invalida(resposta4, valida, "É necessário ter pelo menos 1 resposta correta e 1 errada", "erroResposta4");
 }
 
 function validarUrls() {
@@ -106,7 +116,7 @@ function proseguirCriarNiveis() {
 function invalida(input, valida, mensagemErro, nomeErro){
     var erro = document.querySelector("."+nomeErro);
     if(erro) {
-        erro.parentNode.removeChild(erro);
+        erro.parentNode.removeChild(erro)
     }
 
     if (valida == false){
