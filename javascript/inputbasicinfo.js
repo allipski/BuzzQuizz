@@ -8,6 +8,15 @@ function loadpage1 () {
             <input type="text" placeholder="Quantidade de níveis do quizz">
         </form>
     </div>
-    <button>Prosseguir para criar perguntas</button>`;
+    <button onClick="getInformation()">Prosseguir para criar perguntas</button>`;
 }
  loadpage1();
+
+ function getInformation() {
+    let entries = document.querySelectorAll('input').value;
+    validateData(entries);
+ }
+
+ function validateData(data) {
+    if (data[0].length > 19 && data[0].length < 65)
+ }
