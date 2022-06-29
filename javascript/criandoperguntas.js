@@ -13,16 +13,16 @@ function criarPerguntas(){
                         <input type="text" class="cor" placeholder="Cor de fundo da pergunta">
                         <h2>Resposta correta</h2>
                         <input type="text" class="resposta1" placeholder="Resposta correta">
-                        <input type="text" placeholder="URL da imagem">
+                        <input type="text" class="url1" placeholder="URL da imagem">
                         <h2>Respostas incorretas</h2>
                         <input type="text" class="resposta2" placeholder="Resposta incorreta 1">
-                        <input type="text" placeholder="URL da imagem 1">
+                        <input type="text" class="url2" placeholder="URL da imagem 1">
                         <div class="pular"></div>
                         <input type="text" class="resposta3" placeholder="Resposta incorreta 2">
-                        <input type="text" placeholder="URL da imagem 2">
+                        <input type="text" class="url3" placeholder="URL da imagem 2">
                         <div class="pular"></div>
                         <input type="text" class="resposta4" placeholder="Resposta incorreta 3">
-                        <input type="text" placeholder="URL da imagem 3">
+                        <input type="text" class="url4" placeholder="URL da imagem 3">
                     </form>
                 </div>`
     }
@@ -75,21 +75,7 @@ function validarPergunta () {
     invalida(formulacao, valida, "A pergunta deve ter no mínimo 20 caracteres", "erroPergunta")
 }
 
-function invalida(input, valida, mensagemErro, nomeErro){
-    var erro = document.querySelector("."+nomeErro);
-    if(erro) {
-        erro.parentNode.removeChild(erro);
-    }
-
-    if (valida == false){
-        input.classList.add("invalida")
-        input.insertAdjacentHTML('afterend', '<p class='+nomeErro+'>'+mensagemErro+'</p>')
-    } else {
-        input.classList.remove("invalida")
-    }
-}
-
-function validarRespostas () {
+function validarRespostas() {
     for (let i = 1; i < 5; i++){
         const resposta = document.querySelector(".visivel .resposta"+i)
         let valida = true
@@ -102,8 +88,31 @@ function validarRespostas () {
     }   
 }
 
+function validarUrls() {
+    for (let i = 1; i < 5; i++){
+        const urls = document.querySelector(".visivel .url"+i)
+        let valida = validateUrl(urls.value)
+        invalida(urls, valida, "A URL tem que ser válida", "erroUrl"+i)
+    }  
+}
+
 function proseguirCriarNiveis() {
     validarCor()
     validarPergunta()   
     validarRespostas()
+    validarUrls()
+}
+
+function invalida(input, valida, mensagemErro, nomeErro){
+    var erro = document.querySelector("."+nomeErro);
+    if(erro) {
+        erro.parentNode.removeChild(erro);
+    }
+
+    if (valida == false){
+        input.classList.add("invalida")
+        input.insertAdjacentHTML('afterend', '<p class='+nomeErro+'>'+mensagemErro+'</p>')
+    } else {
+        input.classList.remove("invalida")
+    }
 }
