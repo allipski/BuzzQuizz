@@ -34,8 +34,6 @@ function criarPerguntas(){
     pagina.innerHTML += `<button onClick="proseguirCriarNiveis()">Prosseguir para criar níveis</button>`
 }
 
-criarPerguntas();
-
 function abrirPergunta(elemento){
     elemento.parentNode.parentNode.classList.remove("minimizado")
     const perguntaAnterior = document.querySelector(".visivel")
