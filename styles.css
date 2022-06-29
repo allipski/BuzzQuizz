@@ -1,3 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+.barratopo {
+    background-color: #EC362D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 69px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: fixed;
+    width: 100%;
+}
+
+.barratopo > img {
+    height: 40px;
+}
+
 .paginteira {
     display: flex;
     flex-direction: column;
