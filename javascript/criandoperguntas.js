@@ -61,19 +61,20 @@ function validarCor(){
         valida = false
     }
 
+    // Alice essa é a parte do bonus que mostra os erros no input, esse primeiro if apaga os erros do input de cor (só pra nao criar mais de uma mensagem de erro)
     var erroCor = document.querySelector(".erroCor");
     if(erroCor) {
         erroCor.parentNode.removeChild(erroCor);
     }
 
+    // Esse if daqui nos diz que caso a mensagem for falsa eu adiciono um paragrafo com o erro e deixo o input vermelho
     if (valida == false){
         cor.classList.add("invalida")
         cor.insertAdjacentHTML('afterend', '<p class="erroCor">A cor deve estar na forma hexadecimal</p>')
     } else {
+        // Caso o valor da input for valido eu tiro a cor vermelha dela
         cor.classList.remove("invalida")
     }
-
-    console.log(valida)
 }
 
 function proseguirCriarNiveis() {

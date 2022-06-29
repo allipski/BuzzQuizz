@@ -111,6 +111,10 @@ button {
     padding: 15px 40px;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .minimizado *{
     display: none;
 }
