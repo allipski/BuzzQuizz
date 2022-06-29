@@ -16,7 +16,7 @@ body {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     position: fixed;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
 }
 
 .barratopo > img {
@@ -25,6 +25,7 @@ body {
 
 .paginteira {
     padding-top: 140px;
+    padding-bottom: 30px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -141,8 +142,34 @@ p {
 .gohome {
     font-size: 21px;
     font-weight: 400;
-    color: 818181;
-    text-decoration: underline;
+    color: #818181;
+    margin-top: 25px;
+}
+
+.formatquizzsuccess {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 95%;
+    position: relative;
+    margin: 45px 0;
+}
+
+.formatquizzsuccess > img {
+    max-height: 266px;
+    max-width: 95%;
+    border-radius: 5px;
+}
+
+.titulonaimagem {
+    font-size: 23px;
+    font-weight: 400;
+    color: #FFFFFF;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1;
 }
 
 @media only screen and (max-width: 1100px) {
