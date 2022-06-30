@@ -11,8 +11,6 @@ function loadpage1 () {
     <button type="submit" onclick="getInformation()">Prosseguir para criar perguntas</button>`;
 }
 
-//loadpage1();
-
 let values = [];
 
  function getInformation() {
