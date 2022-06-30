@@ -71,8 +71,21 @@ function validarUrl() {
     return valida
 }
 
+function validarDescricao () {
+    const descricao = document.querySelector(".visivel .descricao")
+    let valida = true
+    
+    if (descricao.value.length < 30) {
+        valida = false
+    } 
+
+    invalida(descricao, valida, "A descrição deve ter no mínimo 10 caracteres", "erroDescricao")
+    return valida
+}
+
 function criarQuizz(){
     validarTitulo()
     validarPorcentagem()
     validarUrl()
+    validarDescricao()
 }
