@@ -8,7 +8,9 @@ function loadpage2 () {
     document.querySelector(".paginteira").innerHTML = 
     `<h1>Seu quizz está pronto!</h1>
     <div class="formatquizzsuccess">
-        <img src="https://daora.app/media/resize/1920x1080/pasta/2/6255dc61eb84f.jpg" onclick="loadQuizz()" />
+        <div class="degrade" onclick="loadQuizz()>
+            <img src="https://daora.app/media/resize/1920x1080/pasta/2/6255dc61eb84f.jpg" />
+        </div>
         <p class="titulonaimagem">Titulo do quiz</p>
     </div>
     <button type="submit" onclick="loadQuizz()">Acessar Quizz</button>
