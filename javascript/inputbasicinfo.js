@@ -10,7 +10,8 @@ function loadpage1 () {
     </div>
     <button type="submit" onclick="getInformation()">Prosseguir para criar perguntas</button>`;
 }
- loadpage1();
+
+//loadpage1();
 
 let values = [];
 
