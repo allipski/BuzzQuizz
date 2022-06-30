@@ -37,14 +37,30 @@ function validarTitulo () {
 }
 
 function validarPorcentagem () {
-    const titulo = document.querySelector(".visivel .porcentagem")
     let valida = true
-    console.log(  isNaN(titulo.value) )
-    if (isNaN(titulo.value) == false && (titulo.value < 0 || titulo.value > 100)) {
+    let zero = false
+    let porcentagem = document.querySelector(".visivel .porcentagem")
+        
+        
+    if (isNaN(porcentagem.value) == false && (porcentagem.value < 0 || porcentagem.value > 100)) {
         valida = false
-    } 
+    }
+    
+    for (let i = 1; i <= 3; i++){
+        porcentagem = document.querySelector(".nivel"+i+" .porcentagem")
+        
+        if (porcentagem.value == 0){
+            zero = true
+        }
 
-    invalida(titulo, valida, "A porcentagem deve ser um número entre 0 e 100", "erroPorcentagem")
+        if (zero != true && i == 3 ){
+            valida = false
+            porcentagem = document.querySelector(".visivel .porcentagem")
+            invalida(porcentagem, valida, "Pelo menos uma porcentagem tem que ser 0", "erroPorcentagem")
+        } else {
+            invalida(porcentagem, valida, "A porcentagem deve ser um número entre 0 e 100", "erroPorcentagem")
+        }
+    }
     return valida
 }
 
