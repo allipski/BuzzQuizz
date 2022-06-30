@@ -125,18 +125,22 @@ function proseguirCriarNiveis() {
     validarRespostas()
     validarUrls()
     let c = 1;
+    const blocoAnterior = document.querySelector(".visivel");
+    let bloco;
     for (let i = 1; i <= values[2]; i++){
-        let bloco = document.querySelector(".visivel")
-        bloco.classList.remove("visivel")
-        bloco.classList.add("minimizado")
+        blocoAnterior.classList.remove("visivel")
+        blocoAnterior.classList.add("minimizado")
         bloco = document.querySelector(".pergunta"+i)
-        bloco.classList.add("visivel")
-        bloco.classList.remove("minimizado")
+        bloco.classList.add("visivel")  
         if (validarCor() && validarPergunta() &&  validarRespostas() && validarUrls()) {
-            c++
+            c++    
         }
+        
+        blocoAnterior.classList.add("visivel")
+        blocoAnterior.classList.remove("minimizado")
+        bloco.classList.remove("visivel")
 
-        if (c == values[2]){
+        if (c == 2){
             criarNiveis()
         }
     }

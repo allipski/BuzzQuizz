@@ -1,5 +1,5 @@
 function criarNiveis(){
-    pagina.innerHTML = `<h1>Crie suas perguntas</h1>`
+    pagina.innerHTML = `<h1>Agora, decida os níveis</h1>`
 
     for (let i = 1; i <= 3; i++){
         pagina.innerHTML += 
@@ -15,9 +15,9 @@ function criarNiveis(){
                 </div>`
     }
 
-    const pergunta = document.querySelector(".nivel1")
-    pergunta.classList.remove("minimizado")
-    pergunta.classList.add("visivel")
+    const nivel = document.querySelector(".secondform")
+    nivel.classList.remove("minimizado")
+    nivel.classList.add("visivel")
 
     pagina.innerHTML += `<button onClick="criarQuizz()">Finalizar Quizz</button>`
 }
@@ -40,31 +40,39 @@ function validarPorcentagem () {
     let valida = true
     let zero = false
     let porcentagem = document.querySelector(".visivel .porcentagem")
-        
-        
-    if (isNaN(porcentagem.value) == false && (porcentagem.value < 0 || porcentagem.value > 100)) {
-        valida = false
-    }
-    
     for (let i = 1; i <= 3; i++){
         porcentagem = document.querySelector(".nivel"+i+" .porcentagem")
-        
-        if (porcentagem.value == 0){
-            zero = true
-        }
-
-        if (zero != true && i == 3 ){
-            valida = false
-            porcentagem = document.querySelector(".visivel .porcentagem")
-            invalida(porcentagem, valida, "Pelo menos uma porcentagem tem que ser 0", "erroPorcentagem")
+        if (isNaN(porcentagem.value) == false && porcentagem.value != "" && porcentagem.value >= 0 && porcentagem.value <= 100){
+            if (porcentagem.value == 0){
+                zero = true
+            }
+            if (zero == false && i == 3){
+                valida = false
+                porcentagem = document.querySelector(".visivel .porcentagem")
+                invalida(porcentagem, valida, "Pelo menos uma das porcentagens da questão tem que ser 0", "erroPorcentagem"+i)
+            } else {
+                invalida(porcentagem, valida, "A porcentagem deve ser um número entre 0 e 100", "erroPorcentagem"+i)
+            }
         } else {
-            invalida(porcentagem, valida, "A porcentagem deve ser um número entre 0 e 100", "erroPorcentagem")
+            valida = false
+            invalida(porcentagem, valida, "A porcentagem deve ser um número entre 0 e 100", "erroPorcentagem"+i)
         }
     }
+
+    return valida
+}
+
+function validarUrl() {
+    let valida = true
+    const url = document.querySelector(".visivel .url")
+    valida = validateUrl(url.value)
+    invalida(url, valida, "A URL tem que ser válida", "erroUrl")
+
     return valida
 }
 
 function criarQuizz(){
     validarTitulo()
     validarPorcentagem()
+    validarUrl()
 }
