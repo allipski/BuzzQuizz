@@ -1,7 +1,9 @@
+let niveis = []
+
 function criarNiveis(){
     pagina.innerHTML = `<h1>Agora, decida os níveis</h1>`
 
-    for (let i = 1; i <= 3; i++){
+    for (let i = 1; i <= values[3]; i++){
         pagina.innerHTML += 
                 `<div class="secondform nivel${i} minimizado">
                     <form>
@@ -22,8 +24,6 @@ function criarNiveis(){
     pagina.innerHTML += `<button onClick="criarQuizz()">Finalizar Quizz</button>`
 }
 
-criarNiveis()
-
 function validarTitulo () {
     const titulo = document.querySelector(".visivel .titulo")
     let valida = true
@@ -40,7 +40,7 @@ function validarPorcentagem () {
     let valida = true
     let zero = false
     let porcentagem = document.querySelector(".visivel .porcentagem")
-    for (let i = 1; i <= 3; i++){
+    for (let i = 1; i <= values[3]; i++){
         porcentagem = document.querySelector(".nivel"+i+" .porcentagem")
         if (isNaN(porcentagem.value) == false && porcentagem.value != "" && porcentagem.value >= 0 && porcentagem.value <= 100){
             if (porcentagem.value == 0){
@@ -71,7 +71,7 @@ function validarUrl() {
     return valida
 }
 
-function validarDescricao () {
+function validarDescricao() {
     const descricao = document.querySelector(".visivel .descricao")
     let valida = true
     
@@ -91,7 +91,7 @@ function criarQuizz(){
     let c = 1;
     const blocoAnterior = document.querySelector(".visivel");
     let bloco;
-    for (let i = 1; i <= 3; i++){
+    for (let i = 1; i <= values[3]; i++){
         blocoAnterior.classList.remove("visivel")
         blocoAnterior.classList.add("minimizado")
         bloco = document.querySelector(".nivel"+i)
@@ -104,7 +104,18 @@ function criarQuizz(){
         blocoAnterior.classList.remove("minimizado")
         bloco.classList.remove("visivel")
 
-        if (c == 3){
+        if (c == values[3]){
+
+            // Separando os valores ja na forma que vao ser entregues a API
+            for (let i = 1; i <= values[3]; i++){    
+               niveis[i-1] = [{
+                    title:  document.querySelector(".nivel"+i+" .titulo").value,
+                    image: document.querySelector(".nivel"+i+" .url").value,
+                    text: document.querySelector(".nivel"+i+" .descricao").value,
+                    minValue: document.querySelector(".nivel"+i+" .porcentagem").value
+                }]
+            }
+
             console.log("proxima pagina")
         }
     }
