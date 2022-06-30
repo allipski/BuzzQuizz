@@ -3,7 +3,7 @@ let pagina = document.querySelector(".paginteira")
 function criarPerguntas(){
     pagina.innerHTML = `<h1>Crie suas perguntas</h1>`
 
-    for (let i = 1; i < 2; i++){
+    for (let i = 1; i <= values[2]; i++){
         pagina.innerHTML += 
                 `<div class="secondform pergunta${i} minimizado">
                     <form>
@@ -125,7 +125,7 @@ function proseguirCriarNiveis() {
     validarRespostas()
     validarUrls()
     let c = 1;
-    for (let i = 1; i < 2; i++){
+    for (let i = 1; i <= values[2]; i++){
         let bloco = document.querySelector(".visivel")
         bloco.classList.remove("visivel")
         bloco.classList.add("minimizado")
@@ -136,7 +136,7 @@ function proseguirCriarNiveis() {
             c++
         }
 
-        if (c == 2){
+        if (c == values[2]){
             criarNiveis()
         }
     }

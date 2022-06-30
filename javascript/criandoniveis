@@ -1,7 +1,7 @@
 function criarNiveis(){
     pagina.innerHTML = `<h1>Crie suas perguntas</h1>`
 
-    for (let i = 1; i < 3; i++){
+    for (let i = 1; i <= 3; i++){
         pagina.innerHTML += 
                 `<div class="secondform nivel${i} minimizado">
                     <form>
@@ -10,7 +10,7 @@ function criarNiveis(){
                         <input type="text" class="titulo" placeholder="Título do nível">
                         <input type="text" class="porcentagem" placeholder="% de acerto mínima">
                         <input type="text" class="url" placeholder="URL da imagem do nível">
-                        <input type="text" class="descricao" placeholder="UDescrição do nível">
+                        <input type="text" class="descricao" placeholder="Descrição do nível">
                     </form>
                 </div>`
     }
@@ -20,4 +20,35 @@ function criarNiveis(){
     pergunta.classList.add("visivel")
 
     pagina.innerHTML += `<button onClick="criarQuizz()">Finalizar Quizz</button>`
+}
+
+criarNiveis()
+
+function validarTitulo () {
+    const titulo = document.querySelector(".visivel .titulo")
+    let valida = true
+    
+    if (titulo.value.length < 10) {
+        valida = false
+    } 
+
+    invalida(titulo, valida, "O título deve ter no mínimo 10 caracteres", "erroTitulo")
+    return valida
+}
+
+function validarPorcentagem () {
+    const titulo = document.querySelector(".visivel .porcentagem")
+    let valida = true
+    console.log(  isNaN(titulo.value) )
+    if (isNaN(titulo.value) == false && (titulo.value < 0 || titulo.value > 100)) {
+        valida = false
+    } 
+
+    invalida(titulo, valida, "A porcentagem deve ser um número entre 0 e 100", "erroPorcentagem")
+    return valida
+}
+
+function criarQuizz(){
+    validarTitulo()
+    validarPorcentagem()
 }
