@@ -23,51 +23,57 @@ let values = [];
  }
 
 function validateTitle(inputValue) {
+    let entries = document.querySelectorAll('input');
     if (inputValue.length < 20 || inputValue.length > 65) {
-        console.log(7)
+        invalida(entries[0], false, "O título tem que ter mais de 20 caracteres e menos do que 65", "erroTitulo")
         return false;
     } else {
-        console.log(8)
+        invalida(entries[0], true, "O título tem que ter mais de 20 caracteres e menos do que 65", "erroTitulo")
         return true;
     }
 }
 
 function validateUrl(inputValue) {
+    let entries = document.querySelectorAll('input');
     try {
         new URL(inputValue);
     } catch (e) {
-        console.log(1)
+        invalida(entries[1], false, "A URL digitada é inválida", "erroUrl")
         return false;
     }
-    console.log(2)
+    invalida(entries[1], true, "A URL digitada é inválida", "erroUrl")
     return true;
 }
 
 function validateQuestionNum(inputValue) {
+    let entries = document.querySelectorAll('input');
     if (inputValue < 3) {
-        console.log(3)
+        invalida(entries[2], false, "O número mínimo de perguntas é 3", "erroNum")
         return false;
     } else {
-        console.log(4)
+        invalida(entries[2], true, "O número mínimo de perguntas é 3", "erroNum")
         return true;
     }
 }
 
 function validateLevels(inputValue) {
+    let entries = document.querySelectorAll('input');
     if (inputValue < 2) {
-        console.log(5)
+        invalida(entries[3], false, "O número mínimo de níveis é 2", "erroNivel")
         return false;
     } else {
-        console.log(6)
+        invalida(entries[3], true, "O número mínimo de perguntas é 3", "erroNivel")
         return true;
     }
 }
 
  function validateData(data) {
-    if (validateTitle(data[0]) && validateUrl(data[1]) && validateQuestionNum(data[2]) && validateLevels(data[3])) {
+    const v1 = validateTitle(data[0])
+    const v2 = validateUrl(data[1])
+    const v3 = validateQuestionNum(data[2])
+    const v4 = validateLevels(data[3])
+    if (v1 && v2 && v3 && v4) {
         criarPerguntas()
-    } else {
-        alert("Dados inválidos. Por favor preencha o formulário novamente.");
     }
  }
  
