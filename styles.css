@@ -206,11 +206,22 @@ p {
     z-index: 1;
 }
 
+.exibindo,
 .userQuizzes,
 .quizlistados {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     flex-wrap: wrap;
+}
+
+.userQuizzes h2,
+.exibindo h2{
+    width: 1430px;
+}
+
+.userQuizzes {
+    overflow: hidden;
 }
 
 .quizz {
@@ -361,6 +372,8 @@ h6 {
 
 .userQuizzes {
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .userQuizzes ion-icon {
@@ -368,8 +381,8 @@ h6 {
     color: #EC362D;
     font-size: 36px;
     position: absolute;
-    right: -60px;
-    top: 30%;
+    left: 140px;
+    top: 20px;
 }
 
 .invisivel {

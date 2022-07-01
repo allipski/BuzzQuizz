@@ -14,7 +14,7 @@ function criarPagina(){
     
     criandoSeusQuizzes()
     pagina.innerHTML += 
-    `<div>
+    `<div class="exibindo">
         <h2>Todos os Quizzes</h2>
         <div class="quizlistados">
         
