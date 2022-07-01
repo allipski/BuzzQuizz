@@ -146,43 +146,39 @@ function proseguirCriarNiveis() {
         if (validarCor(i)){
             c++
         }
-        console.log(c)
         if (validarPergunta(i)){
             c++
         }
-        console.log(c)
         validarRespostas(i)
-        console.log(c)
         validarUrls()
         bloco.classList.remove("visivel")
         blocoAnterior.classList.add("visivel")
         blocoAnterior.classList.remove("minimizado")
-        console.log(c)
-        console.log(values[2] * 8)
+
         if (c == values[2] * 6){
-            let respostas = {}
+            let respostas = []
             
             // Separando os valores ja na forma que vao ser entregues a API
             for (let i = 1; i <= values[2]; i++){
                 for (let j = 1; j <= 4 ; j++){
                     if (document.querySelector(".pergunta"+i+" .resposta"+j).value){
-                        respostas = {
+                        respostas[j-1] = {
                             text: document.querySelector(".pergunta"+i+" .resposta"+j).value,
                             image: document.querySelector(".pergunta"+i+" .url"+j).value
                         }
 
                         if (j == 1){
-                            respostas.isCorrectAnswer = true
+                            respostas[j-1].isCorrectAnswer = true
                         } else {
-                            respostas.isCorrectAnswer = false
+                            respostas[j-1].isCorrectAnswer = false
                         }
                     }
                 }
-                perguntas[i-1] = [{
+                perguntas[i-1] = {
                     title:  document.querySelector(".pergunta"+i+" .pergunta").value,
                     color: document.querySelector(".pergunta"+i+" .cor").value,
                     answers: respostas
-                }]
+                }
             }
             
             criarNiveis()
