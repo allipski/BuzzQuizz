@@ -63,4 +63,4 @@ function mostrarErro(erro){
     console.log(erro)
 }
 
-//criarPagina()
+criarPagina()

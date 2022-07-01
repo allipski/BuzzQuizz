@@ -1,8 +1,7 @@
 let pagina = document.querySelector(".paginteira")
 let perguntas = []
 let c
-values[2] = 2
-criarPerguntas()
+
 function criarPerguntas(){
     pagina.innerHTML = `<h1>Crie suas perguntas</h1>`
 
