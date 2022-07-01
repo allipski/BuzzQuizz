@@ -9,7 +9,7 @@ function criarNiveis(){
                     <form>
                         <ion-icon name="open-outline" onClick="abrirBloco(this)"></ion-icon>
                         <h2>Nível ${i}</h2>
-                        <input type="text" class="titulo" placeholder="Título do nível">
+                        <input type="text" class="Titulo" placeholder="Título do nível">
                         <input type="text" class="porcentagem" placeholder="% de acerto mínima">
                         <input type="text" class="url" placeholder="URL da imagem do nível">
                         <input type="text" class="descricao" placeholder="Descrição do nível">
@@ -24,19 +24,19 @@ function criarNiveis(){
     pagina.innerHTML += `<button onClick="criarQuizz()">Finalizar Quizz</button>`
 }
 
-function validarTitulo () {
-    const titulo = document.querySelector(".visivel .titulo")
+function validarTitulo(n) {
+    const titulo = document.querySelector(".visivel .Titulo")
     let valida = true
     
     if (titulo.value.length < 10) {
         valida = false
     } 
-
-    invalida(titulo, valida, "O título deve ter no mínimo 10 caracteres", "erroTitulo")
+    
+    invalida(titulo, valida, "O título deve ter no mínimo 10 caracteres", "erroTitulo"+n)
     return valida
 }
 
-function validarPorcentagem () {
+function validarPorcentagem() {
     let valida = true
     let zero = false
     let porcentagem = document.querySelector(".visivel .porcentagem")
@@ -62,16 +62,16 @@ function validarPorcentagem () {
     return valida
 }
 
-function validarUrl() {
+function validarUrl(n) {
     let valida = true
     const url = document.querySelector(".visivel .url")
     valida = validateUrl(url.value)
-    invalida(url, valida, "A URL tem que ser válida", "erroUrl")
-
+    invalida(url, valida, "A URL tem que ser válida", "erroUrl"+n)
+    console.log
     return valida
 }
 
-function validarDescricao() {
+function validarDescricao(n) {
     const descricao = document.querySelector(".visivel .descricao")
     let valida = true
     
@@ -79,32 +79,38 @@ function validarDescricao() {
         valida = false
     } 
 
-    invalida(descricao, valida, "A descrição deve ter no mínimo 10 caracteres", "erroDescricao")
+    invalida(descricao, valida, "A descrição deve ter no mínimo 30 caracteres", "erroDescricao"+n)
     return valida
 }
 
 function criarQuizz(){
-    validarTitulo()
-    validarPorcentagem()
-    validarUrl()
-    validarDescricao()
     let c = 1;
     const blocoAnterior = document.querySelector(".visivel");
     let bloco;
+    
     for (let i = 1; i <= values[3]; i++){
         blocoAnterior.classList.remove("visivel")
         blocoAnterior.classList.add("minimizado")
         bloco = document.querySelector(".nivel"+i)
-        bloco.classList.add("visivel")  
-        if (validarTitulo() && validarPorcentagem() &&  validarUrl() && validarDescricao()) {
-            c++    
+        bloco.classList.add("visivel")
+        console.log(blocoAnterior)
+        if (validarTitulo(i)){
+            c++
         }
-        
+        if (validarPorcentagem()){
+            c++
+        }
+        if (validarDescricao(i)){
+            c++
+        }
+        if (validarUrl(i)){
+            c++
+        }
+        bloco.classList.remove("visivel")
         blocoAnterior.classList.add("visivel")
         blocoAnterior.classList.remove("minimizado")
-        bloco.classList.remove("visivel")
 
-        if (c == values[3]){
+        if (c == values[3] * 4){
 
             // Separando os valores ja na forma que vao ser entregues a API
             for (let i = 1; i <= values[3]; i++){    
