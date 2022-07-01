@@ -1,7 +1,8 @@
 let pagina = document.querySelector(".paginteira")
 let perguntas = []
 let c
-
+values[2] = 2
+criarPerguntas()
 function criarPerguntas(){
     pagina.innerHTML = `<h1>Crie suas perguntas</h1>`
 
@@ -155,11 +156,11 @@ function proseguirCriarNiveis() {
         blocoAnterior.classList.add("visivel")
         blocoAnterior.classList.remove("minimizado")
 
-        if (c == values[2] * 6){
-            let respostas = []
+        if (c == values[2] * 6){ 
             
             // Separando os valores ja na forma que vao ser entregues a API
             for (let i = 1; i <= values[2]; i++){
+                let respostas = []
                 for (let j = 1; j <= 4 ; j++){
                     if (document.querySelector(".pergunta"+i+" .resposta"+j).value){
                         respostas[j-1] = {
@@ -178,9 +179,9 @@ function proseguirCriarNiveis() {
                     title:  document.querySelector(".pergunta"+i+" .pergunta").value,
                     color: document.querySelector(".pergunta"+i+" .cor").value,
                     answers: respostas
-                }
+                } 
             }
-            
+           
             criarNiveis()
         }
     }

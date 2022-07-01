@@ -16,7 +16,7 @@ body {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     position: fixed;
     width: 100%;
-    z-index: 2;
+    z-index: 4;
 }
 
 .barratopo > img {

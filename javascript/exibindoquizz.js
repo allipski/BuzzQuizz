@@ -11,7 +11,7 @@ function criarPaginaQuizz(resposta){
             <h4>${resposta.data.title}</h4>
         </div>
     </div>`
-
+    
     for (let i = 0; i < resposta.data.questions.length; i++){
         pagina.innerHTML += 
         `<div class="thirdform">
