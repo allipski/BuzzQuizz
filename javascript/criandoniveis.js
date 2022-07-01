@@ -1,6 +1,7 @@
 let niveis = []
 
 function criarNiveis(){
+    window.scrollTo(0, 0);
     pagina.innerHTML = `<h1>Agora, decida os níveis</h1>`
 
     for (let i = 1; i <= values[3]; i++){
