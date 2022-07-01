@@ -14,7 +14,8 @@ function enviarQuizz (quizz) {
 }
 
 let idQuizz;
-let quizzesDoUser = [];
+let quizzesDoUser = JSON.parse(localStorage.getItem("quizzesUsuario"));
+
 
 function getId (data) { 
     idQuizz = data.data.id;

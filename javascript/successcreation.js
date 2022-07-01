@@ -7,7 +7,7 @@ function carregarImg(data) {
 
 function loadpage2 () {
     const quizatual = axios.get ('https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/'+idQuizz);
-    quizatual.catch(mostrarErro).then(carregarImg);
+    quizatual.catch(mostrarErro).then(carregarPagina);
 }
 
 function carregarPagina(){
