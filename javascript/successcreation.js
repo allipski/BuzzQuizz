@@ -5,7 +5,7 @@ function loadpage2 () {
     // quizatual.catch();
 
     // codigo pra carregar o html da pagina
-    document.querySelector(".paginteira").innerHTML = 
+    pagina.innerHTML = 
     `<h1>Seu quizz está pronto!</h1>
     <div class="formatquizzsuccess">
         <div class="degrade" onclick="loadQuizz()" >

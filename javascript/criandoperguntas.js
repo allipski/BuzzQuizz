@@ -184,7 +184,7 @@ function proseguirCriarNiveis() {
                     answers: respostas
                 }]
             }
-            console.log("aqui")
+            
             criarNiveis()
         }
     }
