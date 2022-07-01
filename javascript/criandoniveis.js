@@ -1,6 +1,5 @@
 let niveis = []
-values[3]=1
-criarNiveis()
+
 function criarNiveis(){
     pagina.innerHTML = `<h1>Agora, decida os níveis</h1>`
 
@@ -126,6 +125,7 @@ function criarQuizz(){
                 }]
             }
             
+            armazenarQuizz()
             loadpage2();
         }
     }
