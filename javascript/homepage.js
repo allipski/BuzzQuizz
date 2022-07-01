@@ -1,10 +1,23 @@
 const quizzes =  axios.get("https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes").catch(mostrarErro).then(carregarQuizzes)
 
 function criarPagina(){
-    pagina.innerHTML = 
+    pagina.innerHTML =
+    `<div class="none">
+        <p>Você não criou nenhum</p>
+        <p> quizz ainda :(</p>
+        <button onClick="loadpage1()">Criar Quizz</button>
+    </div>
+    
+    <div class="userQuizzes">
+        <h2>Seus quizzes</h2><ion-icon onClick="loadpage1()" name="add-circle"></ion-icon>
+    </div>
+    `
+
+    pagina.innerHTML += 
     `<div>
         <h2>Todos os Quizzes</h2>
         <div class="quizlistados">
+        
         </div>
     </div>`
     
