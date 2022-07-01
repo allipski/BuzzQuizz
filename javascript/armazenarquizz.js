@@ -14,8 +14,11 @@ function enviarQuizz (quizz) {
 }
 
 let idQuizz;
+let quizzesDoUser = [];
 
 function getId (data) {
-    idQuizz = data;
-    console.log(idQuizz);
+    idQuizz = data.id;
+    quizzesDoUser.push(idQuizz);
+    let arrayStrigified = JSON.stringify(quizzesDoUser);
+    localStorage.setItem("quizzesUsuario", arrayStrigified);
 }
