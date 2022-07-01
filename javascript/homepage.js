@@ -12,7 +12,7 @@ function criarPagina(){
         <h2>Seus quizzes</h2><ion-icon onClick="loadpage1()" name="add-circle"></ion-icon>
     </div>
     `
-
+    criarSeusQuizzes()
     pagina.innerHTML += 
     `<div>
         <h2>Todos os Quizzes</h2>
@@ -26,7 +26,6 @@ function criarPagina(){
 function carregarQuizzes(resposta){
     const quizlistados = document.querySelector(".quizlistados")
     for (let i = 0; i < resposta.data.length; i++){
-        console.log(resposta.data[i])
         let id = resposta.data[i].id
         quizlistados.innerHTML += 
         // nada por enquanto
