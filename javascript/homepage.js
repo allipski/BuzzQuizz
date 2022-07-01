@@ -25,28 +25,25 @@ function criarPagina(){
 function criandoSeusQuizzes(){
     const listaSerializada = localStorage.getItem("quizzesUsuario")
     quizzesUsuario = JSON.parse(listaSerializada)
-
     if(!quizzesUsuario){
         document.querySelector(".userQuizzes").classList.add("invisivel")
     } else {
         document.querySelector(".none").classList.add("invisivel")
-        for (let i = 0; i < quizzesUsuario.value; i++){
-            axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/"+quizzesUsuario[i]).catch(mostrarErro).then(criarQuizzUsuario)
+        for (let i = 0; i <= quizzesUsuario.length; i++){
+            axios.get("https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/"+quizzesUsuario[i]).catch(mostrarErro).then(criarQuizzUsuario)
         }
     }   
 }
 
 function criarQuizzUsuario(resposta){
     const userQuizzes = document.querySelector(".userQuizzes")
-    for (let i = 0; i < resposta.data.length; i++){
-        let id = resposta.data[i].id
-        userQuizzes.innerHTML += 
-        `<div class="quizz" onClick="exibirQuizz(${id})">
-            <img src="${resposta.data[i].image}">
-            <div class="gradiente"></div>
-            <h3>${resposta.data[i].title}</h3>
-        </div>`
-    }
+    let id = resposta.data.id
+    userQuizzes.innerHTML += 
+    `<div class="quizz" onClick="exibirQuizz(${id})">
+        <img src="${resposta.data.image}">
+        <div class="gradiente"></div>
+        <h3>${resposta.data.title}</h3>
+    </div>`
 }
 
 function carregarQuizzes(resposta){
