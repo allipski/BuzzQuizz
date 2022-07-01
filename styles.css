@@ -273,12 +273,18 @@ h4 {
     color: #FFFFFF;
     font-weight: 400;
     font-size: 39px;
+    line-height: 50px;
+    text-align: center;
+    margin: 15px;
 }
 
 h5 {
     color:#FFFFFF;
     font-weight: 700;
     font-size: 23px;
+    margin: 15px;
+    line-height: 30px;
+    text-align: center;
 }
 
 .perguntaCor{
@@ -304,7 +310,7 @@ h5 {
 }
 
 .answers {
-    width: max-content;
+    width: 320px;
     margin: 8px;
 }
 
@@ -312,6 +318,7 @@ h5 {
     width: 688px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 h6 {
@@ -319,6 +326,8 @@ h6 {
     font-weight: 700;
     font-size: 20px;
     margin: 5px 0;
+    word-wrap: break-word;
+    line-height: 30px;
 }
 
 .none {
@@ -396,6 +405,10 @@ form {
     width: 97%;
 }
 
+.thirdform form {
+    margin: 30x;
+}
+
 .respostas{
     justify-content: space-between;
 }
@@ -441,6 +454,24 @@ h3 {
 
 .none button {
     width: 240px;
+}
+
+h4 {
+    font-size: 19px;
+    line-height: 25px;
+    margin: 8px;
+}
+
+
+h5 {
+    font-size: 19px;
+    line-height: 25px;
+    margin: 15px;
+}
+
+h6 {
+    font-size: 13px;
+    line-height: 10px;
 }
 
 }
