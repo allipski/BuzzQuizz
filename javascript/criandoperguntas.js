@@ -3,6 +3,7 @@ let perguntas = []
 let c
 
 function criarPerguntas(){
+    window.scrollTo(0, 0);
     pagina.innerHTML = `<h1>Crie suas perguntas</h1>`
 
     for (let i = 1; i <= values[2]; i++){

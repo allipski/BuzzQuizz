@@ -3,6 +3,7 @@ function exibirQuizz(id){
 }
 
 function criarPaginaQuizz(resposta){
+    window.scrollTo(0, 0);
     pagina.innerHTML = 
     `<div class="openQuizz">
         <div class="titulo">

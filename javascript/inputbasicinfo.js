@@ -1,4 +1,5 @@
 function loadpage1 () {
+    window.scrollTo(0, 0);
     document.querySelector(".paginteira").innerHTML = `<h1>Comece pelo começo</h1>
     <div class="firstform">
         <form>
