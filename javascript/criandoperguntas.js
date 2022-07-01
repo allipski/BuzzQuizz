@@ -1,5 +1,6 @@
 let pagina = document.querySelector(".paginteira")
 let perguntas = []
+let c
 
 function criarPerguntas(){
     pagina.innerHTML = `<h1>Crie suas perguntas</h1>`
@@ -88,32 +89,45 @@ function validarRespostas(n) {
     
     if (resposta1.value == "") {
         valida1 = false
-    } 
+    } else {
+        c++
+    }
 
     invalida(resposta1, valida1, "A resposta correta não pode ser vazia", "erroResposta1"+n)
     
 
     if (resposta2.value == "" && resposta3.value == "" && resposta4.value == "") {
         valida2 = false
-    } 
+    } else {
+        c++
+    }
     
     invalida(resposta2, valida2, "É necessário ter pelo menos 1 resposta correta e 1 errada", "erroResposta2"+n);
     invalida(resposta3, valida2, "É necessário ter pelo menos 1 resposta correta e 1 errada", "erroResposta3"+n);
     invalida(resposta4, valida2, "É necessário ter pelo menos 1 resposta correta e 1 errada", "erroResposta4"+n);
 
     if (valida1 && valida2){
-        return(valida2)
+        return valida2
     }
 }
 
 function validarUrls() {
     let valida = true
+    let verificador = 0
     for (let i = 1; i < 5; i++){
         const urls = document.querySelector(".visivel .url"+i)
         const resposta = document.querySelector(".visivel .resposta"+i)
         if (resposta.value != ""){
-             valida = validateUrl(urls.value)
+            valida = validateUrl(urls.value)
             invalida(urls, valida, "A URL tem que ser válida", "erroUrl"+i)
+            if (valida ){
+                if (verificador < 2){
+                    verificador++
+                    c++
+                }
+            } else  {
+                c--
+            }
         }
     }
 
@@ -121,8 +135,7 @@ function validarUrls() {
 }
 
 function proseguirCriarNiveis() {
-
-    let c = 1;
+    c = 0
     const blocoAnterior = document.querySelector(".visivel");
     let bloco;
     for (let i = 1; i <= values[2]; i++){
@@ -133,20 +146,20 @@ function proseguirCriarNiveis() {
         if (validarCor(i)){
             c++
         }
+        console.log(c)
         if (validarPergunta(i)){
             c++
         }
-        if (validarRespostas(i)){
-            c++
-        }
-        if (validarUrls()){
-            c++
-        }
-
+        console.log(c)
+        validarRespostas(i)
+        console.log(c)
+        validarUrls()
         bloco.classList.remove("visivel")
         blocoAnterior.classList.add("visivel")
         blocoAnterior.classList.remove("minimizado")
-        if (c == values[2] * 4){
+        console.log(c)
+        console.log(values[2] * 8)
+        if (c == values[2] * 6){
             let respostas = {}
             
             // Separando os valores ja na forma que vao ser entregues a API
@@ -171,6 +184,7 @@ function proseguirCriarNiveis() {
                     answers: respostas
                 }]
             }
+            console.log("aqui")
             criarNiveis()
         }
     }
