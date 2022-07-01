@@ -43,7 +43,7 @@ function abrirBloco(elemento){
     elemento.parentNode.parentNode.classList.add("visivel")
 }
 
-function validarCor(){
+function validarCor(n){
     let valida = true
     let cor = document.querySelector(".visivel .cor")
     if (!cor.value){
@@ -62,11 +62,11 @@ function validarCor(){
         valida = false
     }
 
-    invalida(cor, valida, "A cor deve estar na forma hexadecimal", "erroCor");
+    invalida(cor, valida, "A cor deve estar na forma hexadecimal", "erroCor"+n);
     return valida
 }
 
-function validarPergunta () {
+function validarPergunta (n) {
     const formulacao = document.querySelector(".visivel .pergunta")
     let valida = true
     
@@ -74,11 +74,11 @@ function validarPergunta () {
         valida = false
     } 
 
-    invalida(formulacao, valida, "A pergunta deve ter no mínimo 20 caracteres", "erroPergunta")
+    invalida(formulacao, valida, "A pergunta deve ter no mínimo 20 caracteres", "erroPergunta"+n)
     return valida
 }
 
-function validarRespostas() {
+function validarRespostas(n) {
     const resposta1 = document.querySelector(".visivel .resposta1")
     const resposta2 = document.querySelector(".visivel .resposta2")
     const resposta3 = document.querySelector(".visivel .resposta3")
@@ -90,16 +90,16 @@ function validarRespostas() {
         valida1 = false
     } 
 
-    invalida(resposta1, valida1, "A resposta correta não pode ser vazia", "erroResposta1")
+    invalida(resposta1, valida1, "A resposta correta não pode ser vazia", "erroResposta1"+n)
     
 
     if (resposta2.value == "" && resposta3.value == "" && resposta4.value == "") {
         valida2 = false
     } 
-
-    invalida(resposta2, valida2, "É necessário ter pelo menos 1 resposta correta e 1 errada", "erroResposta2");
-    invalida(resposta3, valida2, "É necessário ter pelo menos 1 resposta correta e 1 errada", "erroResposta3");
-    invalida(resposta4, valida2, "É necessário ter pelo menos 1 resposta correta e 1 errada", "erroResposta4");
+    
+    invalida(resposta2, valida2, "É necessário ter pelo menos 1 resposta correta e 1 errada", "erroResposta2"+n);
+    invalida(resposta3, valida2, "É necessário ter pelo menos 1 resposta correta e 1 errada", "erroResposta3"+n);
+    invalida(resposta4, valida2, "É necessário ter pelo menos 1 resposta correta e 1 errada", "erroResposta4"+n);
 
     if (valida1 && valida2){
         return(valida2)
@@ -121,10 +121,7 @@ function validarUrls() {
 }
 
 function proseguirCriarNiveis() {
-    validarCor()
-    validarPergunta()   
-    validarRespostas()
-    validarUrls()
+
     let c = 1;
     const blocoAnterior = document.querySelector(".visivel");
     let bloco;
@@ -133,14 +130,23 @@ function proseguirCriarNiveis() {
         blocoAnterior.classList.add("minimizado")
         bloco = document.querySelector(".pergunta"+i)
         bloco.classList.add("visivel")  
-        if (validarCor() && validarPergunta() &&  validarRespostas() && validarUrls()) {
-            c++    
+        if (validarCor(i)){
+            c++
         }
-        
+        if (validarPergunta(i)){
+            c++
+        }
+        if (validarRespostas(i)){
+            c++
+        }
+        if (validarUrls()){
+            c++
+        }
+
+        bloco.classList.remove("visivel")
         blocoAnterior.classList.add("visivel")
         blocoAnterior.classList.remove("minimizado")
-        bloco.classList.remove("visivel")
-        if (c == values[2]){
+        if (c == values[2] * 4){
             let respostas = {}
             
             // Separando os valores ja na forma que vao ser entregues a API
@@ -175,7 +181,7 @@ function invalida(input, valida, mensagemErro, nomeErro){
     if(erro) {
         erro.parentNode.removeChild(erro)
     }
-
+    
     if (valida == false){
         input.classList.add("invalida")
         input.insertAdjacentHTML('afterend', '<p class='+nomeErro+'>'+mensagemErro+'</p>')
