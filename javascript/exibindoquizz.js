@@ -1,5 +1,5 @@
 function exibirQuizz(id){
-    axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/'+id).catch(mostrarErro).then(criarPaginaQuizz)
+    axios.get('https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/'+id).catch(mostrarErro).then(criarPaginaQuizz)
 }
 
 function criarPaginaQuizz(resposta){

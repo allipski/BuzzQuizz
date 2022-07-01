@@ -1,6 +1,6 @@
 function loadpage2 () {
     // codigo para pegar img do servidor vai aqui
-    // const quizatual = axios.get ('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/ID_DO_QUIZZ');
+    // const quizatual = axios.get ('https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/ID_DO_QUIZZ');
     // quizatual.then(getCoverFromQuizz(quizatual));
     // quizatual.catch();
 
