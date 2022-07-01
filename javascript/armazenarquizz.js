@@ -6,10 +6,7 @@ function armazenarQuizz() {
         levels: niveis
     };
 
-    console.log(novoQuizz)
-    const enviarNovoQuizz = axios.post('https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes', novoQuizz).catch(console.log("deu ruim")).then(mostrar);
-}
-
-function mostrar(resposta){
-    console.log(resposta.data)
+    const enviarNovoQuizz = axios.post('https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes', novoQuizz);
+    enviarNovoQuizz.then(console.log("deu bom"));
+    enviarNovoQuizz.catch(console.log("deu ruim"));
 }
