@@ -122,7 +122,7 @@ function criarQuizz(){
                 }]
             }
 
-            console.log("proxima pagina")
+            loadpage2();
         }
     }
 }
