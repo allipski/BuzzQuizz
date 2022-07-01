@@ -3,9 +3,9 @@ function loadpage2 () {
     // const quizatual = axios.get ('https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/ID_DO_QUIZZ');
     // quizatual.then(getCoverFromQuizz(quizatual));
     // quizatual.catch();
-
+    console.log("aqui")
     // codigo pra carregar o html da pagina
-    document.querySelector(".paginteira").innerHTML = 
+    pagina.innerHTML = 
     `<h1>Seu quizz está pronto!</h1>
     <div class="formatquizzsuccess">
         <div class="degrade" onclick="loadQuizz()" >

@@ -1,5 +1,6 @@
 let niveis = []
-
+values[3]=1
+criarNiveis()
 function criarNiveis(){
     pagina.innerHTML = `<h1>Agora, decida os níveis</h1>`
 
@@ -84,7 +85,7 @@ function validarDescricao(n) {
 }
 
 function criarQuizz(){
-    let c = 1;
+    let c = 0
     const blocoAnterior = document.querySelector(".visivel");
     let bloco;
     
@@ -93,35 +94,38 @@ function criarQuizz(){
         blocoAnterior.classList.add("minimizado")
         bloco = document.querySelector(".nivel"+i)
         bloco.classList.add("visivel")
-        console.log(blocoAnterior)
         if (validarTitulo(i)){
             c++
         }
+        console.log(c)
         if (validarPorcentagem()){
             c++
         }
+        console.log(c)
         if (validarDescricao(i)){
             c++
         }
+        console.log(c)
         if (validarUrl(i)){
             c++
         }
         bloco.classList.remove("visivel")
         blocoAnterior.classList.add("visivel")
         blocoAnterior.classList.remove("minimizado")
-
+        console.log(c)
+        console.log(values[3]*4)
         if (c == values[3] * 4){
 
             // Separando os valores ja na forma que vao ser entregues a API
             for (let i = 1; i <= values[3]; i++){    
                niveis[i-1] = [{
-                    title:  document.querySelector(".nivel"+i+" .titulo").value,
+                    title:  document.querySelector(".nivel"+i+" .Titulo").value,
                     image: document.querySelector(".nivel"+i+" .url").value,
                     text: document.querySelector(".nivel"+i+" .descricao").value,
                     minValue: document.querySelector(".nivel"+i+" .porcentagem").value
                 }]
             }
-
+            
             loadpage2();
         }
     }
