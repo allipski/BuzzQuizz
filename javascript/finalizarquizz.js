@@ -19,7 +19,9 @@ function calcularPontos(ultimoelemento) {
                 </div>
             </div>
         </form>
-    </div>`);
+    </div>
+    <button type="submit" onclick="exibirQuizz(${idAtual})">Acessar Quizz</button>
+    <p class="gohome" onclick="criarPagina()">Voltar pra home</p>`);
 
     ultimoelemento.nextElementSibling.scrollIntoView({
         behavior :'smooth'
