@@ -1,3 +1,5 @@
+let entries;
+
 function loadpage1 () {
     window.scrollTo(0, 0);
     document.querySelector(".paginteira").innerHTML = `<h1>Comece pelo começo</h1>
@@ -15,7 +17,7 @@ function loadpage1 () {
 let values = [];
 
  function getInformation() {
-    let entries = document.querySelectorAll('input');
+    entries = document.querySelectorAll('input');
     for (let i = 0; i < entries.length; i++){
         values[i] = entries[i].value;
     }
@@ -23,35 +25,29 @@ let values = [];
  }
 
 function validateTitle(inputValue) {
-    let entries = document.querySelectorAll('input');
     if (inputValue.length < 20 || inputValue.length > 65) {
-        invalida(entries[0], false, "O título tem que ter mais de 20 caracteres e menos do que 65", "erroTitulo")
         return false;
     } else {
-        invalida(entries[0], true, "O título tem que ter mais de 20 caracteres e menos do que 65", "erroTitulo")
         return true;
     }
 }
 
 function validateUrl(inputValue) {
-    let entries = document.querySelectorAll('input');
+    console.log("aqui")
+    
     try {
         new URL(inputValue);
     } catch (e) {
-        invalida(entries[1], false, "A URL digitada é inválida", "erroUrl")
         return false;
     }
-    invalida(entries[1], true, "A URL digitada é inválida", "erroUrl")
     return true;
 }
 
 function validateQuestionNum(inputValue) {
     let entries = document.querySelectorAll('input');
     if (inputValue < 3) {
-        invalida(entries[2], false, "O número mínimo de perguntas é 3", "erroNum")
         return false;
     } else {
-        invalida(entries[2], true, "O número mínimo de perguntas é 3", "erroNum")
         return true;
     }
 }
@@ -59,19 +55,37 @@ function validateQuestionNum(inputValue) {
 function validateLevels(inputValue) {
     let entries = document.querySelectorAll('input');
     if (inputValue < 2) {
-        invalida(entries[3], false, "O número mínimo de níveis é 2", "erroNivel")
         return false;
     } else {
-        invalida(entries[3], true, "O número mínimo de perguntas é 3", "erroNivel")
         return true;
     }
 }
 
  function validateData(data) {
     const v1 = validateTitle(data[0])
+    if (!v1){
+        invalida(entries[0], false, "O título tem que ter mais de 20 caracteres e menos do que 65", "erroTitulo")
+    } else {
+        invalida(entries[0], true, "O título tem que ter mais de 20 caracteres e menos do que 65", "erroTitulo")
+    }
     const v2 = validateUrl(data[1])
+    if (!v2){
+        invalida(entries[1], false, "A URL digitada é inválida", "erroUrl")
+    } else {
+        invalida(entries[1], true, "A URL digitada é inválida", "erroUrl")
+    }
     const v3 = validateQuestionNum(data[2])
+    if (!v3){
+        invalida(entries[2], false, "O número mínimo de perguntas é 3", "erroNum")
+    } else {
+        invalida(entries[2], true, "O número mínimo de perguntas é 3", "erroNum")
+    }
     const v4 = validateLevels(data[3])
+    if (!v4){
+        invalida(entries[3], false, "O número mínimo de níveis é 2", "erroNivel")
+    } else {
+        invalida(entries[3], true, "O número mínimo de perguntas é 3", "erroNivel")
+    }
     if (v1 && v2 && v3 && v4) {
         criarPerguntas()
     }
