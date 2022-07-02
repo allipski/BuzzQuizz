@@ -1,21 +1,28 @@
 function calcularPontos(ultimoelemento) {
     const numeroacertos = document.querySelectorAll(".certa.clicada").length;
-    const porcentagemacerto = numeroacertos/numerodeperguntas;
-
-    //Aqui vou colocar o código para identificar o nível que o usuário caiu
+    const porcentagemacerto = Math.round(((numeroacertos/numerodeperguntas)*100));
+    for (i = 0; i < niveisPorcentagem.length; i++) {
+        if (niveisPorcentagem[i] <= porcentagemacerto && porcentagemacerto < niveisPorcentagem[i + 1]) {
+            caiunonivel = i;
+        } else if (niveisPorcentagem[i + 1] == null) {
+            caiunonivel = i;
+        } else if (porcentagemacerto < niveisPorcentagem[0]) {
+            caiunonivel = 0;
+        }
+    }
 
     ultimoelemento.insertAdjacentHTML("afterend",  
-    `<div class="thirdform">
+    `<div class="fifthform">
         <form>
             <div class="perguntaCor" style="background-color: #EC362D">
-                <h5>Título do nível</h5>
+                <h5>${porcentagemacerto}%: ${niveisTitulos[caiunonivel]}</h5>
             </div>
             <div class="respostas">
                 <div class="answers">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/B%C3%A9b%C3%A9_Phoque_de_Weddell_-_Baby_Weddell_Seal.jpg">
+                    <img src="${niveisUrl[caiunonivel]}">
                 </div>
                 <div class="answers">
-                    <h6>Título do nívelTítulo do nívelTítulo do nívelTítulo do nívelTítulo do nível</h6>
+                    <h6>${niveisDescricao[caiunonivel]}</h6>
                 </div>
             </div>
         </form>

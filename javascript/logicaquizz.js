@@ -1,4 +1,4 @@
-let numerodeperguntas;
+let numerodeperguntas = 0;
 
 function respostaClicada(resposta) {
     let section

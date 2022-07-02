@@ -47,6 +47,16 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
 
+.fifthform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: max-content;
+    background-color: #FFFFFF;
+    margin: 27px 0 45px 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
 .secondform {
     margin: 27px 0;
 }
