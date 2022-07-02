@@ -172,16 +172,17 @@ p {
     max-width: 95%;
     position: relative;
     margin: 45px 0;
+    word-break: break-all;
 }
 
 .formatquizzsuccess img {
     height: 266px;
     max-width: 100%;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .degrade {
-    border-radius: 5px;
+    border-radius: 10px;
     height: 266px;
     width: 100%;
     position: relative;

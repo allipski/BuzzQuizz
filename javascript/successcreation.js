@@ -6,7 +6,7 @@ function carregarPagina(data) {
         <div class="degrade" onclick="exibirQuizz(${data.data.id})" >
             <img src=${data.data.image} />
         </div>
-        <p class="titulonaimagem">Titulo do quiz</p>
+        <p class="titulonaimagem">${data.data.title}</p>
     </div>
     <button type="submit" onclick="exibirQuizz(${data.data.id})">Acessar Quizz</button>
     <p class="gohome" onclick="criarPagina()">Voltar pra home</p>`;

@@ -18,7 +18,6 @@ function getId (data) {
     idQuizz = data.data.id;
     let quizzesDoUser = JSON.parse(localStorage.getItem("quizzesUsuario"));
     quizzesDoUser.push(idQuizz);
-    console.log(quizzesDoUser)
     let arrayStrigified = JSON.stringify(quizzesDoUser);
     localStorage.setItem("quizzesUsuario", arrayStrigified);
 }

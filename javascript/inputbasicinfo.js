@@ -33,8 +33,6 @@ function validateTitle(inputValue) {
 }
 
 function validateUrl(inputValue) {
-    console.log("aqui")
-    
     try {
         new URL(inputValue);
     } catch (e) {

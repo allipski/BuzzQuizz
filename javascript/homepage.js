@@ -40,15 +40,14 @@ function criandoSeusQuizzes(){
 
 function criarQuizzUsuario(resposta){
     const userQuizzes = document.querySelector(".quizzesBox")
-    let id = resposta.data.id
     userQuizzes.innerHTML += 
-    `<div class="quizz" onClick="exibirQuizz(${id})">
+    `<div class="quizz" onClick="exibirQuizz(${resposta.data.id})">
         <img src="${resposta.data.image}">
         <div class="gradiente"></div>
         <h3>${resposta.data.title}</h3>
         <div class="buttons">
-            <ion-icon name="open-outline" onClick="editarQuizz(id)"></ion-icon>
-            <ion-icon name="trash-outline" onClick="removerQuizz(id)"></ion-icon>
+            <ion-icon name="open-outline" onClick="editarQuizz(${resposta.data.id}, event)"></ion-icon>
+            <ion-icon name="trash-outline" onClick="removerQuizz(${resposta.data.id}, event)"></ion-icon>
         </div>
     </div>`
 }
