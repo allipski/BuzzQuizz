@@ -1,3 +1,5 @@
+let numerodeperguntas;
+
 function respostaClicada(resposta) {
     let section
     if (!resposta.parentElement.classList.contains("stop")){
@@ -11,17 +13,22 @@ function respostaClicada(resposta) {
             }
         }
         resposta.classList.remove("naoclicada");
+        resposta.classList.add("clicada");
         resposta.parentElement.classList.add("stop");
 
         section = resposta.parentElement.parentElement.parentElement;
+        numerodeperguntas++;
+        setTimeout (() => proximaPergunta(section), 2000);
     }
-    setTimeout (() => proximaPergunta(section), 2000);
 }
 
 function proximaPergunta(perguntaatual) {
-    console.log(perguntaatual);
+    if (perguntaatual.nextElementSibling !== null) {
     perguntaatual.nextElementSibling.scrollIntoView({
         top:80,
         behavior :'smooth'
     })
+    } else {
+        calcularPontos(perguntaatual);
+    }
 }
