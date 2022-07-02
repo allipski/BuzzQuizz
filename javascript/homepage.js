@@ -1,6 +1,5 @@
-const quizzes =  axios.get("https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes").catch(mostrarErro).then(carregarQuizzes)
-
 function criarPagina(){
+    axios.get("https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes").catch(mostrarErro).then(carregarQuizzes)
     window.scrollTo(0, 0);
     pagina.innerHTML =
     `<div class="none">
