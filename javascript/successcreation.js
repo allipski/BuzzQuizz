@@ -1,5 +1,4 @@
 function carregarPagina(data) {
-    console.log(data)
     window.scrollTo(0, 0);
     pagina.innerHTML = 
     `<h1>Seu quizz está pronto!</h1>

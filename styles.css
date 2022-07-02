@@ -216,13 +216,20 @@ p {
     flex-wrap: wrap;
 }
 
+.quizlistados,
 .userQuizzes h2,
 .exibindo h2{
-    width: 1430px;
+    width: 81%;
 }
 
-.userQuizzes {
+.quizzesBox {
+    margin-left: 20px;
+    width: 98%;
+    height: 280px;
     overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
 }
 
 .quizz {
@@ -372,6 +379,7 @@ h6 {
 }
 
 .userQuizzes {
+    width: 81%;
     position: relative;
     display: flex;
     flex-direction: column;

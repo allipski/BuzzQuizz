@@ -11,6 +11,9 @@ function criarPagina(){
     
     <div class="userQuizzes">
         <h2>Seus quizzes</h2><ion-icon onClick="loadpage1()" name="add-circle"></ion-icon>
+        <div class="quizzesBox">
+            
+        </div>
     </div>`
     
     criandoSeusQuizzes()
@@ -37,7 +40,8 @@ function criandoSeusQuizzes(){
 }
 
 function criarQuizzUsuario(resposta){
-    const userQuizzes = document.querySelector(".userQuizzes")
+    const userQuizzes = document.querySelector(".quizzesBox")
+    console.log(userQuizzes)
     let id = resposta.data.id
     userQuizzes.innerHTML += 
     `<div class="quizz" onClick="exibirQuizz(${id})">
