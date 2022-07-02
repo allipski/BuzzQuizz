@@ -28,7 +28,7 @@ function criarPaginaQuizz(resposta){
         let question = document.querySelector(".respostas"+i)
         for (let j = 0; j < resposta.data.questions[i].answers.length; j++){
             question.innerHTML += 
-            `<div class="answers ${resposta.data.questions[i].answers[j].isCorrectAnswer}">
+            `<div class="answers ${resposta.data.questions[i].answers[j].isCorrectAnswer}" onclick="respostaClicada(this)">
                 <img src="${resposta.data.questions[i].answers[j].image}">
                 <h6>${resposta.data.questions[i].answers[j].text}</h6>
             <div>`

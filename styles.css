@@ -398,6 +398,22 @@ h6 {
     display: none;
 }
 
+.certa > h6 {
+    color: #009C22;
+}
+
+.errada > h6 {
+    color: #FF4B4B;
+}
+
+.clicada {
+    opacity: 1;
+}
+
+.naoclicada {
+    opacity: 0.3;
+}
+
 @media only screen and (max-width: 1100px) {
 
 .paginteira {
