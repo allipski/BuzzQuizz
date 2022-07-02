@@ -1,3 +1,8 @@
+let niveisTitulos = []
+let niveisPorcentagem = []
+let niveisUrl = []
+let niveisDescricao = []
+
 function exibirQuizz(id){
     axios.get('https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/'+id).catch(mostrarErro).then(criarPaginaQuizz)
 }
@@ -34,6 +39,15 @@ function criarPaginaQuizz(resposta){
             <div>`
         }
     }
+
+    for (let i = 0; i < resposta.data.levels.length; i++){
+        niveisTitulos.push(resposta.data.levels[i].title)
+        niveisUrl.push(resposta.data.levels[i].image)
+        niveisDescricao.push(resposta.data.levels[i].text)
+        niveisPorcentagem.push(resposta.data.levels[i].minValue)
+    }
+
+    niveisPorcentagem.sort()
 }
 
 function comparador() { 
