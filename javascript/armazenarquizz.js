@@ -20,4 +20,6 @@ function getId (data) {
     quizzesDoUser.push(idQuizz);
     let arrayStrigified = JSON.stringify(quizzesDoUser);
     localStorage.setItem("quizzesUsuario", arrayStrigified);
+
+    loadpage2();
 }
