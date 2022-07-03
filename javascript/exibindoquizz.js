@@ -42,11 +42,13 @@ function criarPaginaQuizz(resposta){
         }
     }
 
-    for (let i = 0; i < resposta.data.levels.length; i++){
-        niveisTitulos.push(resposta.data.levels[i].title)
-        niveisUrl.push(resposta.data.levels[i].image)
-        niveisDescricao.push(resposta.data.levels[i].text)
-        niveisPorcentagem.push(resposta.data.levels[i].minValue)
+    if (niveisPorcentagem.length === 0) {
+        for (let i = 0; i < resposta.data.levels.length; i++){
+            niveisTitulos.push(resposta.data.levels[i].title)
+            niveisUrl.push(resposta.data.levels[i].image)
+            niveisDescricao.push(resposta.data.levels[i].text)
+            niveisPorcentagem.push(resposta.data.levels[i].minValue)
+        }
     }
 
     niveisPorcentagem.sort()
