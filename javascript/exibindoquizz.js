@@ -11,17 +11,19 @@ function exibirQuizz(id){
 
 function criarPaginaQuizz(resposta){
     window.scrollTo(0, 0);
-    pagina.innerHTML = 
+    pagina2.innerHTML = 
     `<div class="openQuizz">
         <div class="titulo">
             <img src="${resposta.data.image}">
             <div class="escurecendo"><div>
             <h4>${resposta.data.title}</h4>
         </div>
-    </div>`
+    </div>
+    `
+    document.querySelector(".openQuizz").insertAdjacentHTML("afterend", '<div class="master"></div>'); 
     
     for (let i = 0; i < resposta.data.questions.length; i++){
-        pagina.innerHTML += 
+        document.querySelector(".master").innerHTML += 
         `<div class="thirdform">
             <form>
                 <div class="perguntaCor perguntaCor${i}" style="background-color:  ${resposta.data.questions[i].color}">

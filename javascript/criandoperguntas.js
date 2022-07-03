@@ -1,6 +1,7 @@
-let pagina = document.querySelector(".paginteira")
-let perguntas = []
-let c
+let pagina = document.querySelector(".master");
+let pagina2 = document.querySelector(".paginteira");
+let perguntas = [];
+let c;
 
 function criarPerguntas(){
     window.scrollTo(0, 0);
