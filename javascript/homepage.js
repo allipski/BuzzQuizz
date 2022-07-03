@@ -1,7 +1,9 @@
 function criarPagina(){
     axios.get("https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes").catch(mostrarErro).then(carregarQuizzes)
     window.scrollTo(0, 0);
-    pagina.innerHTML =
+    document.querySelector(".paginteira").innerHTML = '';
+    document.querySelector(".paginteira").innerHTML = `<div class="master"></div>`;
+    document.querySelector(".master").innerHTML =
     `<div class="none">
         <p>Você não criou nenhum</p>
         <p> quizz ainda :(</p>
@@ -16,7 +18,7 @@ function criarPagina(){
     </div>`
     
     criandoSeusQuizzes()
-    pagina.innerHTML += 
+    document.querySelector(".master").innerHTML += 
     `<div class="userQuizzes">
         <h2>Todos os Quizzes</h2>
         <div class="quizzesBox2">
