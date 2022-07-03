@@ -6,7 +6,6 @@ function calcularPontos(ultimoelemento) {
     numeroacertos = document.querySelectorAll(".certa.clicada").length;
     porcentagemacerto = Math.round(((numeroacertos/numerodeperguntas)*100));
     descobrirNivel();
-
     ultimoelemento.insertAdjacentHTML("afterend",  
     `<div class="fifthform">
         <form>
@@ -23,31 +22,25 @@ function calcularPontos(ultimoelemento) {
             </div>
         </form>
     </div>
-    <button type="submit" onclick="exibirQuizz(${idAtual})">Reiniciar Quizz</button>
-    <p class="gohome" onclick="criarPagina()">Voltar pra home</p>`);
+    <button type="submit" onClick="exibirQuizz(${idAtual})">Reiniciar Quizz</button>
+    <p class="gohome" onClick="criarPagina()">Voltar pra home</p>`);
 
     ultimoelemento.nextElementSibling.scrollIntoView({
         behavior :'smooth'
     })
     numerodeperguntas = 0;
 }
-let contador = 0;
+
 function descobrirNivel() {
-    contador = 0;
+    caiunonivel = 0
     for (i = 0; i < niveisPorcentagem.length; i++) {
-        console.log(4);
-        if ((niveisPorcentagem[i] <= porcentagemacerto) && (porcentagemacerto < niveisPorcentagem[i + 1]) && contador === 0) {
-            caiunonivel = i;
-            console.log(1);
-            contador++;
-        } else if (niveisPorcentagem[i + 1] == null && contador === 0) {
-            caiunonivel = i;
-            console.log(2);
-            contador++;
-        } else if (porcentagemacerto < niveisPorcentagem[0] && contador === 0) {
-            caiunonivel = 0;
-            console.log(3);
-            contador++;
+        if (niveisPorcentagem[i] < porcentagemacerto) {
+            if (niveisPorcentagem[i] != niveisPorcentagem[caiunonivel] && niveisPorcentagem[i] > niveisPorcentagem[caiunonivel]){
+                caiunonivel = i
+            }
+        } else if (niveisPorcentagem[i] == porcentagemacerto){
+            caiunonivel = i
+            return
         }
     }
 }

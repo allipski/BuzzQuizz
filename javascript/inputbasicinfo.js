@@ -42,7 +42,6 @@ function validateUrl(inputValue) {
 }
 
 function validateQuestionNum(inputValue) {
-    let entries = document.querySelectorAll('input');
     if (inputValue < 3) {
         return false;
     } else {
@@ -51,7 +50,6 @@ function validateQuestionNum(inputValue) {
 }
 
 function validateLevels(inputValue) {
-    let entries = document.querySelectorAll('input');
     if (inputValue < 2) {
         return false;
     } else {

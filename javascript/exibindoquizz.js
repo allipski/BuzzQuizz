@@ -52,8 +52,6 @@ function criarPaginaQuizz(resposta){
             niveisPorcentagem.push(resposta.data.levels[i].minValue)
         }
     }
-
-    niveisPorcentagem.sort()
 }
 
 function comparador() { 
