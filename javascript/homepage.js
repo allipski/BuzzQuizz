@@ -17,9 +17,9 @@ function criarPagina(){
     
     criandoSeusQuizzes()
     pagina.innerHTML += 
-    `<div class="exibindo">
+    `<div class="userQuizzes">
         <h2>Todos os Quizzes</h2>
-        <div class="quizlistados">
+        <div class="quizzesBox2">
         
         </div>
     </div>`
@@ -41,26 +41,30 @@ function criandoSeusQuizzes(){
 function criarQuizzUsuario(resposta){
     const userQuizzes = document.querySelector(".quizzesBox")
     userQuizzes.innerHTML += 
-    `<div class="quizz" onClick="exibirQuizz(${resposta.data.id})">
-        <img src="${resposta.data.image}">
-        <div class="gradiente"></div>
-        <h3>${resposta.data.title}</h3>
-        <div class="buttons">
-            <ion-icon name="open-outline" onClick="editarQuizz(${resposta.data.id}, event)"></ion-icon>
-            <ion-icon name="trash-outline" onClick="removerQuizz(${resposta.data.id}, event)"></ion-icon>
+    `<div class="quizz2">
+        <div class="quizz" onClick="exibirQuizz(${resposta.data.id})">
+            <img src="${resposta.data.image}">
+            <div class="gradiente"></div>
+            <h3>${resposta.data.title}</h3>
+            <div class="buttons">
+                <ion-icon name="open-outline" onClick="editarQuizz(${resposta.data.id}, event)"></ion-icon>
+                <ion-icon name="trash-outline" onClick="removerQuizz(${resposta.data.id}, event)"></ion-icon>
+            </div>
         </div>
     </div>`
 }
 
 function carregarQuizzes(resposta){
-    const quizlistados = document.querySelector(".quizlistados")
+    const quizlistados = document.querySelector(".quizzesBox2");
     for (let i = 0; i < resposta.data.length; i++){
         let id = resposta.data[i].id
         quizlistados.innerHTML += 
-        `<div class="quizz" onClick="exibirQuizz(${id})">
-            <img src="${resposta.data[i].image}">
-            <div class="gradiente"></div>
-            <h3>${resposta.data[i].title}</h3>
+        `<div class="quizz2">
+            <div class="quizz" onClick="exibirQuizz(${id})">
+                <img src="${resposta.data[i].image}">
+                <div class="gradiente"></div>
+                <h3>${resposta.data[i].title}</h3>
+            </div>
         </div>`
     }
 }

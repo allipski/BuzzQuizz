@@ -2,7 +2,7 @@ let entries;
 
 function loadpage1 () {
     window.scrollTo(0, 0);
-    document.querySelector(".paginteira").innerHTML = `<h1>Comece pelo começo</h1>
+    document.querySelector(".master").innerHTML = `<h1>Comece pelo começo</h1>
     <div class="firstform">
         <form>
             <input type="text" placeholder="Título do seu quizz">

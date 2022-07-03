@@ -31,7 +31,14 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
+}
+
+.master {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
 }
 
 .fourthform,
@@ -47,14 +54,26 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
 
+.thirdform {
+    width: max-content;
+}
+
+.thirdform form {
+    margin: 34px;
+}
+
 .fifthform {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 600px;
-        background-color: #FFFFFF;
-        margin: 27px 0 45px 0;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    width: max-content;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #FFFFFF;
+    margin: 27px 0 45px 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+.fifthform form {
+    margin: 34px;
 }
 
 .secondform {
@@ -230,55 +249,72 @@ p {
 .quizlistados,
 .userQuizzes h2,
 .exibindo h2{
-    width: 81%;
+    width: 100%;
 }
 
 .quizzesBox {
-    margin-left: 20px;
-    width: 98%;
-    height: 280px;
-    overflow: hidden;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    overflow-x: scroll;
+    flex-wrap: wrap;
+    margin-bottom: 45px;
+}
+
+.quizzesBox2 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.quizz2 {
+    padding: 10px;
+    width: 33%;
+    height: 200px;
 }
 
 .quizz {
     position: relative;
+    width: 100%;
+    height: 100%;
 }
 
-.gradiente,
-.userQuizzes img,
-.quizlistados img {
-    width: 458px;
-    height: 241px;
-    margin: 14px;
+
+.quizz img {
     border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .gradiente {
-    height: 161px;
+    height: 60%;
+    width: 100%;
+    border-radius: 10px;
     position: absolute;
     bottom: 0;
-    left: 0;
     background-image: linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0)); 
 }
 
 h3 {
-    width: 384px;
+    width: 100%;
     color:#FFFFFF;
     font-size: 22px;
     word-break: break-all;
     font-weight: 400;
     position: absolute;
-    left: 27px;
-    bottom: 44px;
+    left: 5%;
+    bottom: 10%;
     z-index: 2;
 }
 
 .openQuizz {
     width: 100%;
     height: 227px;
+}
+
+.openQuizz img {
+    width: 100%;
 }
 
 .escurecendo,
@@ -326,14 +362,6 @@ h5 {
     align-items: center;
 }
 
-.thirdform {
-    width: max-content;
-}
-
-.thirdform form {
-    margin: 34px;
-}
-
 .answers img{
     width: 320px;
     height: 175px;
@@ -361,9 +389,10 @@ h6 {
 }
 
 .none {
-    width: 75%;
+    width: 100%;
     height: 221px;
     border: 3px dashed #D4D4D4;
+    margin: 60px 0 40px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -374,6 +403,7 @@ h6 {
     color: #B9B9B9;
     font-weight: 400;
     font-size: 26px;
+    margin-bottom: 7px;
 }
 
 .none :nth-child(2){
@@ -386,11 +416,12 @@ h6 {
     border: 3px dashed #EC362D;
     border-radius: 50px;
     font-weight: 400;
-    font-size: 36px;
+    font-size: 28px;
+    padding: 10px 15px;
 }
 
 .userQuizzes {
-    width: 81%;
+    width: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -429,7 +460,7 @@ h6 {
     width: 43px;
     height: 87px;
     position: absolute;
-    right: 15px;
+    right: 0px;
     top: 30px;
     background-color: #EC362D;
     border-radius: 10px 0px 0px 11px;
@@ -518,11 +549,8 @@ button {
     width: 100%;
 }
 
-.quizz,
-.gradiente,
 .quizlistados img {
-    width: 98%;
-    height: 70%;
+    width: 100%;;
 }
 
 h3 {
