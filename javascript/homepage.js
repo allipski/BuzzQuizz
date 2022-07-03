@@ -5,8 +5,8 @@ function criarPagina(){
     niveisDescricao = []
     axios.get("https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes").catch(mostrarErro).then(carregarQuizzes)
     window.scrollTo(0, 0);
-    document.querySelector(".paginteira").innerHTML = '';
-    document.querySelector(".paginteira").innerHTML = `<div class="master"></div>`;
+    pagina2.innerHTML = ``
+    pagina2.innerHTML = `<div class="master"></div>`
     document.querySelector(".master").innerHTML =
     `<div class="none">
         <p>Você não criou nenhum</p>
