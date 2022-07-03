@@ -85,7 +85,7 @@ function validateLevels(inputValue) {
         invalida(entries[3], true, "O número mínimo de perguntas é 3", "erroNivel")
     }
     if (v1 && v2 && v3 && v4) {
-        criarPerguntas()
+        criarPerguntas(quizAntigo)
     }
  }
  

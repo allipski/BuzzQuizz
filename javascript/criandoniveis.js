@@ -1,6 +1,6 @@
 let niveis = []
 
-function criarNiveis(){
+function criarNiveis(quizAntigo){
     window.scrollTo(0, 0);
     pagina.innerHTML = `<h1>Agora, decida os níveis</h1>`
 
@@ -23,6 +23,28 @@ function criarNiveis(){
     nivel.classList.add("visivel")
 
     pagina.innerHTML += `<button onClick="criarQuizz()">Finalizar Quizz</button>`
+
+    if (quizAntigo){
+        let numNiveis = document.querySelectorAll('.secondform').length
+        let entradas = document.querySelectorAll('input')
+        let c
+        if (quizAntigo.questions.length == numNiveis){
+            c = quizAntigo.questions.length
+        } else {
+            if (quizAntigo.questions.length > numNiveis){
+                c = numNiveis
+            } else {
+                c = quizAntigo.questions.length
+            }
+        }
+        
+        for (let k = 0; k < c; k++){
+            entradas[0+(k*4)].value = quizAntigo.levels[k].title
+            entradas[1+(k*4)].value = quizAntigo.levels[k].minValue
+            entradas[2+(k*4)].value = quizAntigo.levels[k].image
+            entradas[3+(k*4)].value = quizAntigo.levels[k].text
+        }
+    }
 }
 
 function validarTitulo(n) {
@@ -38,16 +60,16 @@ function validarTitulo(n) {
 }
 
 function validarPorcentagem() {
-    let valida = true
+    let valida
     let zero = false
     let porcentagem = document.querySelector(".visivel .porcentagem")
     for (let i = 1; i <= values[3]; i++){
+        valida = true
         porcentagem = document.querySelector(".nivel"+i+" .porcentagem")
         if (isNaN(porcentagem.value) == false && porcentagem.value != "" && porcentagem.value >= 0 && porcentagem.value <= 100){
             if (porcentagem.value == 0){
                 zero = true
-            }
-            if (zero == false && i == 3){
+            } else if (!zero && i == 3){
                 valida = false
                 porcentagem = document.querySelector(".visivel .porcentagem")
                 invalida(porcentagem, valida, "Pelo menos uma das porcentagens da questão tem que ser 0", "erroPorcentagem"+i)

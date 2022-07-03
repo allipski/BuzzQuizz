@@ -19,13 +19,9 @@ function mostrarSeuQuizz(data) {
 
 function temCerteza(id){ 
     if (confirm("Deseja mesmo excluir o quiz?")){
-        console.log(id)
         let quizzesDoUser = JSON.parse(localStorage.getItem("quizzesUsuario"))
-        console.log(quizzesDoUser)
         let index = quizzesDoUser.indexOf(id)
-        console.log(index)
         quizzesDoUser.splice(index, 1)
-        console.log(quizzesDoUser)
         axios.delete('https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/'+id).catch(mostrarErro)
     } else {
         criarPagina()

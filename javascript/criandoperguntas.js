@@ -2,7 +2,7 @@ let pagina = document.querySelector(".paginteira")
 let perguntas = []
 let c
 
-function criarPerguntas(){
+function criarPerguntas(quizAntigo){
     window.scrollTo(0, 0);
     pagina.innerHTML = `<h1>Crie suas perguntas</h1>`
 
@@ -35,6 +35,45 @@ function criarPerguntas(){
     pergunta.classList.add("visivel")
 
     pagina.innerHTML += `<button onClick="proseguirCriarNiveis()">Prosseguir para criar níveis</button>`
+
+    if (quizAntigo){
+        let numPerguntas = document.querySelectorAll('.secondform').length
+        let entradas = document.querySelectorAll('input')
+        let c
+        if (quizAntigo.questions.length == numPerguntas){
+            c = quizAntigo.questions.length
+        } else {
+            if (quizAntigo.questions.length > numPerguntas){
+                c = numPerguntas
+            } else {
+                c = quizAntigo.questions.length
+            }
+        }
+        
+        for (let k = 0; k < c; k++){
+            for (let i = 0; i < 10; i++){
+                if (i%10 == 0){
+                    entradas[i+(k*10)].value = quizAntigo.questions[k].title
+                } else if (i%10 == 1){
+                    entradas[i+(k*10)].value = quizAntigo.questions[k].color
+                } else {
+                    for (let j = 0; j < 4; j++){
+                        if (quizAntigo.questions[k].answers[j]){
+                            entradas[i+(k*10)].value = quizAntigo.questions[k].answers[j].text
+                            i++
+                            entradas[i+(k*10)].value = quizAntigo.questions[k].answers[j].image
+                            i++
+                        } else if (j == 3){
+                            i++
+                        } else {
+                            i+=2
+                        }
+                       
+                    }
+                }
+            }
+        }
+    }
 }
 
 function abrirBloco(elemento){
@@ -181,7 +220,7 @@ function proseguirCriarNiveis() {
                 } 
             }
            
-            criarNiveis()
+            criarNiveis(quizAntigo)
         }
     }
 }
