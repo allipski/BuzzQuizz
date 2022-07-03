@@ -31,7 +31,7 @@ function criarPerguntas(quizAntigo){
                 </div>`
     }
 
-    const pergunta = document.querySelector(".pergunta1")
+    const pergunta = pagina.querySelector(".pergunta1")
     pergunta.classList.remove("minimizado")
     pergunta.classList.add("visivel")
 

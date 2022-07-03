@@ -58,6 +58,10 @@ body {
     width: max-content;
 }
 
+.thirdform img:hover {
+    cursor: pointer;
+}
+
 .thirdform form {
     margin: 34px;
 }
@@ -300,9 +304,11 @@ h3 {
     width: 100%;
     color:#FFFFFF;
     font-size: 22px;
-    word-break: break-all;
+    word-break: normal;
+    line-height: 25px;
     font-weight: 400;
     position: absolute;
+    padding-right: 10%;
     left: 5%;
     bottom: 10%;
     z-index: 2;
@@ -490,12 +496,16 @@ h6 {
 
 @media only screen and (max-width: 1100px) {
 
-.paginteira {
-    padding-top: 106px;
+.master {
+    width: 90%;
+}
+
+.quizz2 {
+    width: 100%;
 }
 
 h1 {
-    margin: 0;
+    margin: 25px 0 0 0;
     font-size: 20px;
 }
 
@@ -520,10 +530,6 @@ form {
 
 .thirdform form {
     margin: 30x;
-}
-
-.thirdform img:hover {
-    cursor: pointer;
 }
 
 .respostas{

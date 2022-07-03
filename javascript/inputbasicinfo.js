@@ -1,4 +1,8 @@
 let entries;
+let v1;
+let v2;
+let v3;
+let v4;
 
 function loadpage1 () {
     window.scrollTo(0, 0);
@@ -58,25 +62,25 @@ function validateLevels(inputValue) {
 }
 
  function validateData(data) {
-    const v1 = validateTitle(data[0])
+    v1 = validateTitle(data[0])
     if (!v1){
         invalida(entries[0], false, "O título tem que ter mais de 20 caracteres e menos do que 65", "erroTitulo")
     } else {
         invalida(entries[0], true, "O título tem que ter mais de 20 caracteres e menos do que 65", "erroTitulo")
     }
-    const v2 = validateUrl(data[1])
+    v2 = validateUrl(data[1])
     if (!v2){
         invalida(entries[1], false, "A URL digitada é inválida", "erroUrl")
     } else {
         invalida(entries[1], true, "A URL digitada é inválida", "erroUrl")
     }
-    const v3 = validateQuestionNum(data[2])
+    v3 = validateQuestionNum(data[2])
     if (!v3){
         invalida(entries[2], false, "O número mínimo de perguntas é 3", "erroNum")
     } else {
         invalida(entries[2], true, "O número mínimo de perguntas é 3", "erroNum")
     }
-    const v4 = validateLevels(data[3])
+    v4 = validateLevels(data[3])
     if (!v4){
         invalida(entries[3], false, "O número mínimo de níveis é 2", "erroNivel")
     } else {
