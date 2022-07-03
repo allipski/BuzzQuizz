@@ -143,7 +143,6 @@ function criarQuizz(){
             }
             
             armazenarQuizz()
-            loadpage2();
         }
     }
 }
