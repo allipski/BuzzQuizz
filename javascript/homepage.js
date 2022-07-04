@@ -34,7 +34,7 @@ function criarPagina(){
 function criandoSeusQuizzes(){
     const listaSerializada = localStorage.getItem("quizzesUsuario")
     quizzesUsuario = JSON.parse(listaSerializada)
-    if(!quizzesUsuario){
+    if(quizzesUsuario != []){
         document.querySelector(".userQuizzes").classList.add("invisivel")
     } else {
         document.querySelector(".none").classList.add("invisivel")

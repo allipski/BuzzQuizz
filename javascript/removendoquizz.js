@@ -26,8 +26,12 @@ function temCerteza(id){
         const index = quizzesDoUser.indexOf(id)
         const headers = {headers:{ 'Secret-Key': userKeys[index]}}
         quizzesDoUser.splice(index, 1)
-        const arrayStrigified = JSON.stringify(quizzesDoUser)
+        userKeys.splice(index, 1)
+        let arrayStrigified = JSON.stringify(quizzesDoUser)
         localStorage.setItem("quizzesUsuario", arrayStrigified)
+        arrayStrigified = JSON.stringify(userKeys)
+        localStorage.setItem("userKeys", arrayStrigified)
+        console.log(userKeys)
         axios.delete('https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/'+id, headers).catch(mostrarErro).then(criarPagina)
     } else {
         criarPagina()
