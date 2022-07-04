@@ -33,7 +33,7 @@ function criarPerguntas(quizAntigo){
                 </div>`
     }
 
-    const pergunta = pagina.querySelector(".pergunta1")
+    const pergunta = document.querySelector(".secondform")
     pergunta.classList.remove("minimizado")
     pergunta.classList.add("visivel")
 
