@@ -14,10 +14,11 @@ function enviarQuizz (quizz) {
 }
 
 function getId (data) { 
-    let quizzesDoUser = JSON.parse(localStorage.getItem("quizzesUsuario"));
-    let userKeys = JSON.parse(localStorage.getItem("userKeys"));
-    
-    if (!quizzesDoUser && !userKeys){
+    let quizzesDoUser = localStorage.getItem("quizzesUsuario");
+    let userKeys = localStorage.getItem("userKeys");
+
+    // Caso a pessoa não tiver nenhum quiz zeramos seus quizes e suas keys
+    if (!quizzesDoUser || !userKeys){
         quizzesDoUser = []
         userKeys = []
     }
