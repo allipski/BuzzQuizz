@@ -48,6 +48,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 600px;
     background-color: #FFFFFF;
     margin: 27px 0 85px 0;
@@ -60,6 +61,10 @@ body {
 
 .thirdform form {
     margin: 34px;
+}
+
+.thirdform img:hover {
+    cursor: pointer;
 }
 
 .fifthform {
@@ -494,6 +499,17 @@ h6 {
     padding-top: 106px;
 }
 
+.master {
+    width: 100%;
+}
+
+.openQuizz,
+.openQuizz .titulo,
+.openQuizz img,
+.openQuizz .escurecendo {
+    height: 142px;
+}
+
 h1 {
     margin: 0;
     font-size: 20px;
@@ -503,8 +519,13 @@ h1 {
 .secondform,
 .firstform {
     width: 100%;
-    padding: 5px;
+    padding: 0px;
     margin-bottom: 29px;
+    margin-top: 0;
+}
+
+.thirdform form {
+    padding: 10px;
 }
 
 input {
@@ -515,15 +536,7 @@ input {
 .respostas,
 .perguntaCor,
 form {
-    width: 97%;
-}
-
-.thirdform form {
-    margin: 30x;
-}
-
-.thirdform img:hover {
-    cursor: pointer;
+    width: 100%;
 }
 
 .respostas{
