@@ -5,10 +5,12 @@ let c;
 
 function criarPerguntas(quizAntigo){
     window.scrollTo(0, 0);
-    pagina.innerHTML = `<h1>Crie suas perguntas</h1>`
+    pagina2.innerHTML = ``;
+    pagina2.innerHTML = `<div class="master"></div>`;
+    document.querySelector(".master").innerHTML = `<h1>Crie suas perguntas</h1>`
 
     for (let i = 1; i <= values[2]; i++){
-        pagina.innerHTML += 
+        document.querySelector(".master").innerHTML += 
                 `<div class="secondform pergunta${i} minimizado">
                     <form>
                         <ion-icon name="open-outline" onClick="abrirBloco(this)"></ion-icon>
@@ -35,7 +37,7 @@ function criarPerguntas(quizAntigo){
     pergunta.classList.remove("minimizado")
     pergunta.classList.add("visivel")
 
-    pagina.innerHTML += `<button onClick="proseguirCriarNiveis()">Prosseguir para criar níveis</button>`
+    document.querySelector(".master").innerHTML += `<button onClick="proseguirCriarNiveis()">Prosseguir para criar níveis</button>`
 
     if (quizAntigo){
         let numPerguntas = document.querySelectorAll('.secondform').length
