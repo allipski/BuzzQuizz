@@ -26,6 +26,7 @@ function criarNiveis(quizAntigo){
 
     document.querySelector(".master").innerHTML += `<button onClick="criarQuizz()">Finalizar Quizz</button>`
 
+    // Caso a pessoa tiver selecionado pra editar algum quiz ela entra nesse if e coloca os valores dentro das inputs
     if (quizAntigo){
         let numNiveis = document.querySelectorAll('.secondform').length
         let entradas = document.querySelectorAll('input')

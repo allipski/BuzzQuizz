@@ -21,12 +21,14 @@ function getId (data) {
     if (!quizzesDoUser || !userKeys){
         quizzesDoUser = []
         userKeys = []
+    } else {
+        quizzesDoUser = JSON.parse(quizzesDoUser)
+        userKeys = JSON.parse(userKeys)
     }
 
     // Salvando o id do quiz do usuario no local storage
     quizzesDoUser.push(data.data.id);
     const index = quizzesDoUser.length -1;
-    console.log(index)
     let arrayStrigified = JSON.stringify(quizzesDoUser);
     localStorage.setItem("quizzesUsuario", arrayStrigified);
 
@@ -34,6 +36,5 @@ function getId (data) {
     userKeys.push(data.data.key);
     arrayStrigified = JSON.stringify(userKeys);
     localStorage.setItem("userKeys", arrayStrigified);
-    console.log(userKeys)
     loadpage2();
 }
