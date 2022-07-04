@@ -15,7 +15,7 @@ function criarPagina(){
     </div>
     
     <div class="userQuizzes">
-        <h2>Seus quizzes</h2><ion-icon onClick="loadpage1()" name="add-circle"></ion-icon>
+        <div class="cabecalho"><h2>Seus quizzes</h2><ion-icon onClick="loadpage1()" name="add-circle"></ion-icon></div>
         <div class="quizzesBox">
             
         </div>

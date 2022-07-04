@@ -56,11 +56,13 @@ body {
 }
 
 .thirdform {
-    width: max-content;
+    width: 700px;
 }
 
 .thirdform form {
-    margin: 34px;
+    margin: 0px;
+    padding: 20px;
+    width: 100%;
 }
 
 .thirdform img:hover {
@@ -69,16 +71,19 @@ body {
 
 .fifthform {
     display: flex;
-    width: max-content;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    width: 700px;
     background-color: #FFFFFF;
-    margin: 27px 0 45px 0;
+    margin: 27px 0 85px 0;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
 
 .fifthform form {
-    margin: 34px;
+    margin: 0px;
+    padding: 20px;
+    width: 100%;
 }
 
 .secondform {
@@ -164,10 +169,6 @@ button:hover {
     margin: 9px 0 9px 7px;
 }
 
-ion-icon {
-    display: none;
-}
-
 p {
     color: #EC362D;
     margin-left: 9px;
@@ -243,18 +244,29 @@ p {
     margin-right: 20px;
 }
 
-.userQuizzes,
-.quizlistados {
+.userQuizzes {
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.quizlistados,
-.userQuizzes h2,
-.exibindo h2{
-    width: 100%;
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.cabecalho h2 {
+    margin: 0;
+    padding: 13px;
+}
+.cabecalho ion-icon {
+    display: block;
+    color: #EC362D;
+    font-size: 36px;
+    position: static;
 }
 
 .quizzesBox {
@@ -359,26 +371,33 @@ h5 {
 }
 
 .perguntaCor{
-    width: 688px;
+    width: 100%;
     height: 138px;
-
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .answers img{
-    width: 320px;
-    height: 175px;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
 }
 
 .answers {
-    width: 320px;
-    margin: 8px;
+    width: 48%;
+    margin: 0;
+    padding-top: 10px;
+}
+
+.answers h6 {
+    line-height: 18px;
+    margin: 0;
 }
 
 .respostas {
-    width: 688px;
+    width:100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -430,15 +449,6 @@ h6 {
     position: relative;
     display: flex;
     flex-direction: column;
-}
-
-.userQuizzes ion-icon {
-    display: block;
-    color: #EC362D;
-    font-size: 36px;
-    position: absolute;
-    left: 140px;
-    top: 20px;
 }
 
 .invisivel {
@@ -496,11 +506,20 @@ h6 {
 @media only screen and (max-width: 1100px) {
 
 .paginteira {
-    padding-top: 106px;
+    padding-top: 80px;
 }
 
 .master {
     width: 100%;
+}
+
+.cabecalho {
+    margin-top:25px;
+}
+
+.quizz2 {
+    min-width: 300px;
+    width: 100%; 
 }
 
 .openQuizz,
@@ -510,8 +529,12 @@ h6 {
     height: 142px;
 }
 
+.openQuizz {
+    margin-bottom: 12px;
+}
+
 h1 {
-    margin: 0;
+    margin-bottom: 30px;
     font-size: 20px;
 }
 
@@ -525,7 +548,20 @@ h1 {
 }
 
 .thirdform form {
-    padding: 10px;
+    padding: 10px 20px;
+    margin: 10px 0;
+}
+
+.fifthform {
+    width: 100%;
+    padding: 0px;
+    margin-bottom: 29px;
+    margin-top: 0;
+}
+
+.fifthform form {
+    padding: 10px 20px;
+    margin: 10px 0;
 }
 
 input {
@@ -539,22 +575,29 @@ form {
     width: 100%;
 }
 
+.perguntaCor {
+    height: 100px;
+}
+
 .respostas{
     justify-content: space-between;
+    padding: 0;
 }
 
 .answers {
-    width: 46%;
+    width: 48%;
     height: 40%;
 }
 
 .answers img {
     width: 100%;
+    height: 150px;
+    object-fit: cover;
 }
 
 button {
     font-size: 18px;
-    width:85%;
+    width: 320px;
     padding: 20px 0px;
 }
 
