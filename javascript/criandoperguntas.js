@@ -13,8 +13,8 @@ function criarPerguntas(quizAntigo){
         document.querySelector(".master").innerHTML += 
                 `<div class="secondform pergunta${i} minimizado">
                     <form>
-                        <ion-icon name="open-outline" onClick="abrirBloco(this)"></ion-icon>
                         <h2>Pergunta ${i}</h2>
+                        <ion-icon name="open-outline" onClick="abrirBloco(this)"></ion-icon>
                         <input type="text" class="pergunta" placeholder="Texto da pergunta">
                         <input type="text" class="cor" placeholder="Cor de fundo da pergunta">
                         <h2>Resposta correta</h2>
