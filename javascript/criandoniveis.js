@@ -10,8 +10,8 @@ function criarNiveis(quizAntigo){
         document.querySelector(".master").innerHTML += 
                 `<div class="secondform nivel${i} minimizado">
                     <form>
-                        <ion-icon name="open-outline" onClick="abrirBloco(this)"></ion-icon>
                         <h2>Nível ${i}</h2>
+                        <ion-icon name="open-outline" onClick="abrirBloco(this)"></ion-icon>
                         <input type="text" class="Titulo" placeholder="Título do nível">
                         <input type="text" class="porcentagem" placeholder="% de acerto mínima">
                         <input type="text" class="url" placeholder="URL da imagem do nível">
