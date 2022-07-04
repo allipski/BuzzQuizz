@@ -5,7 +5,9 @@ function removerQuizz(id, event){
 
 function mostrarSeuQuizz(data) {
     window.scrollTo(0, 0);
-    pagina.innerHTML = 
+    pagina2.innerHTML = ``
+    pagina2.innerHTML = `<div class="master"></div>`
+    document.querySelector(".master").innerHTML =
         `<h1>Tem certeza de que deseja deletar seu quiz?</h1>
         <div class="formatquizzsuccess">
             <div class="degrade" onclick="exibirQuizz(${data.data.id})" >
@@ -17,12 +19,16 @@ function mostrarSeuQuizz(data) {
         <p class="gohome" onClick="criarPagina()">Voltar pra home</p>`;
 }
 
-function temCerteza(id){ 
+function temCerteza(id){
     if (confirm("Deseja mesmo excluir o quiz?")){
         let quizzesDoUser = JSON.parse(localStorage.getItem("quizzesUsuario"))
-        let index = quizzesDoUser.indexOf(id)
+        let userKeys = JSON.parse(localStorage.getItem("userKeys"))
+        const index = quizzesDoUser.indexOf(id)
+        const headers = {headers:{ 'Secret-Key': userKeys[index]}}
         quizzesDoUser.splice(index, 1)
-        axios.delete('https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/'+id).catch(mostrarErro)
+        const arrayStrigified = JSON.stringify(quizzesDoUser)
+        localStorage.setItem("quizzesUsuario", arrayStrigified)
+        axios.delete('https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes/'+id, headers).catch(mostrarErro).then(criarPagina)
     } else {
         criarPagina()
     }

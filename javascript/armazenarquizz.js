@@ -14,12 +14,25 @@ function enviarQuizz (quizz) {
 }
 
 function getId (data) { 
-    let idQuizz;
-    idQuizz = data.data.id;
     let quizzesDoUser = JSON.parse(localStorage.getItem("quizzesUsuario"));
-    quizzesDoUser.push(idQuizz);
+    let userKeys = JSON.parse(localStorage.getItem("userKeys"));
+    
+    if (!quizzesDoUser && !userKeys){
+        quizzesDoUser = []
+        userKeys = []
+    }
+
+    // Salvando o id do quiz do usuario no local storage
+    quizzesDoUser.push(data.data.id);
+    const index = quizzesDoUser.length -1;
+    console.log(index)
     let arrayStrigified = JSON.stringify(quizzesDoUser);
     localStorage.setItem("quizzesUsuario", arrayStrigified);
 
+    // Salvando a key no local storage  
+    userKeys.push(data.data.key);
+    arrayStrigified = JSON.stringify(userKeys);
+    localStorage.setItem("userKeys", arrayStrigified);
+    console.log(userKeys)
     loadpage2();
 }

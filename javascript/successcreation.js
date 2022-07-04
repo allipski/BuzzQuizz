@@ -1,4 +1,5 @@
 function carregarPagina(data) {
+    console.log(data)
     window.scrollTo(0, 0);
     pagina2.innerHTML = ``;
     pagina2.innerHTML = `<div class="master"></div>`;
