@@ -2,10 +2,12 @@ let niveis = []
 
 function criarNiveis(quizAntigo){
     window.scrollTo(0, 0);
-    pagina.innerHTML = `<h1>Agora, decida os níveis</h1>`
+    pagina2.innerHTML = ``;
+    pagina2.innerHTML = `<div class="master"></div>`;
+    document.querySelector(".master").innerHTML = `<h1>Agora, decida os níveis</h1>`
 
     for (let i = 1; i <= values[3]; i++){
-        pagina.innerHTML += 
+        document.querySelector(".master").innerHTML += 
                 `<div class="secondform nivel${i} minimizado">
                     <form>
                         <ion-icon name="open-outline" onClick="abrirBloco(this)"></ion-icon>
@@ -22,7 +24,7 @@ function criarNiveis(quizAntigo){
     nivel.classList.remove("minimizado")
     nivel.classList.add("visivel")
 
-    pagina.innerHTML += `<button onClick="criarQuizz()">Finalizar Quizz</button>`
+    document.querySelector(".master").innerHTML += `<button onClick="criarQuizz()">Finalizar Quizz</button>`
 
     if (quizAntigo){
         let numNiveis = document.querySelectorAll('.secondform').length

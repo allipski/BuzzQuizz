@@ -1,6 +1,8 @@
 function carregarPagina(data) {
     window.scrollTo(0, 0);
-    pagina.innerHTML = 
+    pagina2.innerHTML = ``;
+    pagina2.innerHTML = `<div class="master"></div>`;
+    document.querySelector(".master").innerHTML = 
     `<h1>Seu quizz está pronto!</h1>
     <div class="formatquizzsuccess">
         <div class="degrade" onclick="exibirQuizz(${data.data.id})" >
