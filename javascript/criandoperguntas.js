@@ -229,6 +229,7 @@ function proseguirCriarNiveis() {
     }
 }
 
+// Essa função mostra os erros de valides pro usuario em todas as inputs
 function invalida(input, valida, mensagemErro, nomeErro){
     var erro = document.querySelector("."+nomeErro);
     if(erro) {
